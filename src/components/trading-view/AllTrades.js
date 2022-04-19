@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-nested-ternary */
 import React, { useEffect, useState } from 'react';
 import { crypto, addr, type } from '../../assets/real-time.json';

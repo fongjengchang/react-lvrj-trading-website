@@ -114,19 +114,19 @@ function App() {
           </TabPanel>
           <TabList className="tab-buttons">
             <Tab>
-              <img src="/icons/trade.png" alt="trade" className="tab-button-icon" />
+              <img src="/static/icons/trade.png" alt="trade" className="tab-button-icon" />
               <p>Trade</p>
             </Tab>
             <Tab onClick={() => setShowLongShort(false)}>
-              <img src="/icons/activity.png" alt="activity" className="tab-button-icon" />
+              <img src="/static/icons/activity.png" alt="activity" className="tab-button-icon" />
               <p>Activity</p>
             </Tab>
             <Tab onClick={() => setShowLongShort(false)}>
-              <img src="/icons/leadboard.png" alt="leaderboard" className="tab-button-icon" />
+              <img src="/static/icons/leadboard.png" alt="leaderboard" className="tab-button-icon" />
               <p>LeaderBoard</p>
             </Tab>
             <Tab onClick={() => setShowLongShort(false)}>
-              <img src="/icons/liquidity.png" alt="liquidity" className="tab-button-icon" />
+              <img src="/static/icons/liquidity.png" alt="liquidity" className="tab-button-icon" />
               <p>Liquidity</p>
             </Tab>
           </TabList>

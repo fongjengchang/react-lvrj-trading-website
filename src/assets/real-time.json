@@ -4,51 +4,51 @@
     "forex": ["AUD/USD", "EUR/CHF", "EUR/GBP", "EUR/JPY", "EUR/USD", "GBP/USD", "NZD/USD", "USD/CAD", "USD/CHF", "USD/JPY"],
     "people": [
         {
-            "img_url": "/avatars/avatar_1.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_1.jpg",
             "name": "TradingView"
         },
         {
-            "img_url": "/avatars/avatar_2.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_2.jpg",
             "name": "transparent-fx"
         },
         {
-            "img_url": "/avatars/avatar_3.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_3.jpg",
             "name": "Yuriy_Bishko"
         },
         {
-            "img_url": "/avatars/avatar_4.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_4.jpg",
             "name": "Lingrid"
         },
         {
-            "img_url": "/avatars/avatar_5.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_5.jpg",
             "name": "yckoffMode"
         },
         {
-            "img_url": "/avatars/avatar_6.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_6.jpg",
             "name": "tntsunrise"
         },
         {
-            "img_url": "/avatars/avatar_7.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_7.jpg",
             "name": "TopTradingSignals"
         },
         {
-            "img_url": "/avatars/avatar_8.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_8.jpg",
             "name": "TradingShot"
         },
         {
-            "img_url": "/avatars/avatar_9.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_9.jpg",
             "name": "Taneesha"
         },
         {
-            "img_url": "/avatars/avatar_10.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_10.jpg",
             "name": "Alansantana"
         },
         {
-            "img_url": "/avatars/avatar_11.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_11.jpg",
             "name": "ramin_trader2006"
         },
         {
-            "img_url": "/avatars/avatar_12.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_12.jpg",
             "name": "wongicarus"
         }
     ],
@@ -61,7 +61,7 @@
             "trades": "1",
             "winrate": "100%",
             "pnl": "940.34",
-            "img_url": "/avatars/avatar_1.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_1.jpg",
             "name": "TradingView",
             "expanded": false
         },
@@ -71,7 +71,7 @@
             "trades": "3",
             "winrate": "66.6%",
             "pnl": "819.86",
-            "img_url": "/avatars/avatar_2.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_2.jpg",
             "name": "transparent-fx",
             "expanded": false
         },
@@ -81,7 +81,7 @@
             "trades": "11",
             "winrate": "60%",
             "pnl": "673.21",
-            "img_url": "/avatars/avatar_3.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_3.jpg",
             "name": "Yuriy_Bishko",
             "expanded": false
         },
@@ -91,7 +91,7 @@
             "trades": "4",
             "winrate": "100%",
             "pnl": "207.16",
-            "img_url": "/avatars/avatar_4.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_4.jpg",
             "name": "Lingrid",
             "expanded": false
         },
@@ -101,7 +101,7 @@
             "trades": "8",
             "winrate": "71.4%",
             "pnl": "200.04",
-            "img_url": "/avatars/avatar_5.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_5.jpg",
             "name": "yckoffMode",
             "expanded": false
         },
@@ -111,7 +111,7 @@
             "trades": "1",
             "winrate": "100%",
             "pnl": "142.98",
-            "img_url": "/avatars/avatar_6.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_6.jpg",
             "name": "tntsunrise",
             "expanded": false
         },
@@ -121,7 +121,7 @@
             "trades": "3",
             "winrate": "100%",
             "pnl": "133.07",
-            "img_url": "/avatars/avatar_7.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_7.jpg",
             "name": "TopTradingSignals",
             "expanded": false
         },
@@ -131,7 +131,7 @@
             "trades": "15",
             "winrate": "40.4%",
             "pnl": "-89.09",
-            "img_url": "/avatars/avatar_8.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_8.jpg",
             "name": "TradingShot",
             "expanded": false
         },
@@ -141,7 +141,7 @@
             "trades": "42",
             "winrate": "100%",
             "pnl": "-36.73",
-            "img_url": "/avatars/avatar_9.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_9.jpg",
             "name": "Taneesha",
             "expanded": false
         },
@@ -151,7 +151,7 @@
             "trades": "76",
             "winrate": "0%",
             "pnl": "-13.21",
-            "img_url": "/avatars/avatar_10.jpg",
+            "img_url": "/static/mock-images/avatars/avatar_10.jpg",
             "name": "Alansantana",
             "expanded": false
         }

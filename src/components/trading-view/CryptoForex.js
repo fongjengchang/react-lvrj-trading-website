@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import ReactLoading from 'react-loading';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -9,6 +10,10 @@ import { FaPlus } from 'react-icons/fa';
 import { crypto, forex, people } from '../../assets/real-time.json';
 
 const KEYS_TO_FILTERS = ['pair', 'name'];
+
+CryptoForex.propTypes = {
+  onHideSearch: PropTypes.func
+}
 
 function CryptoForex({ onHideSearch }) {
   const [cryptoData, setCryptoData] = useState([]);

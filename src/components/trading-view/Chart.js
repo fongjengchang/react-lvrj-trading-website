@@ -1,6 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { TradingViewEmbed, widgetType } from 'react-tradingview-embed';
+
+Chart.propTypes = {
+  mode: PropTypes.bool
+}
 
 function Chart({ mode }) {
   return (

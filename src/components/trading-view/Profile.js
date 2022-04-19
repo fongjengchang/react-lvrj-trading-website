@@ -5,8 +5,8 @@ function Profile() {
   return (
     <div className="user-profile">
       <div className="d-flex item-center flex-start">
-        <img src="/icons/dai.png" alt="lvrj" className="currency-icon" />
-        <img src="/icons/usdc.jpeg" alt="lvrj" className="currency-icon ml-5" />
+        <img src="/static/icons/dai.png" alt="lvrj" className="currency-icon" />
+        <img src="/static/icons/usdc.jpeg" alt="lvrj" className="currency-icon ml-5" />
         <p> $LVRJ-DAI</p>
       </div>
       <ul className="invoice-list">

@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable consistent-return */
 import React, { createContext, useState, useEffect } from 'react';
 
 export const ThemeContext = createContext();

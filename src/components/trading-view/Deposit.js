@@ -7,8 +7,8 @@ function Deposit() {
       <div className="d-flex deposit-row">
         <div>
           <div className="d-flex">
-            <img src="/icons/dai.png" alt="lvrj" className="currency-icon" />
-            <img src="/icons/usdc.jpeg" alt="lvrj" className="currency-icon ml-5" />
+            <img src="/static/icons/dai.png" alt="lvrj" className="currency-icon" />
+            <img src="/static/icons/usdc.jpeg" alt="lvrj" className="currency-icon ml-5" />
             <p> DAI-USDC</p>
           </div>
           <p>$222,232</p>
@@ -18,8 +18,8 @@ function Deposit() {
       <div className="d-flex deposit-row">
         <div>
           <div className="d-flex">
-            <img src="/icons/lvrj.png" alt="lvrj" className="currency-icon" />
-            <img src="/icons/usdc.jpeg" alt="lvrj" className="currency-icon ml-5" />
+            <img src="/static/icons/lvrj.png" alt="lvrj" className="currency-icon" />
+            <img src="/static/icons/usdc.jpeg" alt="lvrj" className="currency-icon ml-5" />
             <p> $LVRJ-USDC</p>
           </div>
           <p>$32,682</p>

@@ -3,10 +3,16 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 import { FaRegCircle, FaMinusCircle, FaPlusCircle } from 'react-icons/fa';
 
 import ArrowUp from '../../assets/arrow-up.svg';
 import ArrowDown from '../../assets/arrow-down.svg';
+
+LongShort.propTypes = {
+  mode: PropTypes.bool
+}
 
 function LongShort({ mode }) {
   const [value, setValue] = useState(10);

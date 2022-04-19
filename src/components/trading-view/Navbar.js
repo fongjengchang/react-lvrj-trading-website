@@ -49,7 +49,7 @@ function Navbar({ mode, setMode, onShowSearch, onShowOverlay }) {
         </div>
       </div>
       <div className={`navbar ${mode ? 'dark' : 'light'}`}>
-        <img src="/icons/profile.svg" alt="profile" className="mobile-view-icons" onClick={() => onShowOverlay(true)} />
+        <img src="/static/icons/profile.svg" alt="profile" className="mobile-view-icons" onClick={() => onShowOverlay(true)} />
         <div className="navbar-left">
           <div className="navbar-logo" onClick={() => onShowSearch(true)}>
             <FontAwesomeIcon icon={faSearch} className="navbar-search-icon" />
@@ -92,7 +92,7 @@ function Navbar({ mode, setMode, onShowSearch, onShowOverlay }) {
           </li>
         </ul>
         <div className="wallet-icon" onMouseOver={() => setShowTip(true)} onMouseLeave={() => setShowTip(false)}>
-          <img src="/icons/wallet.svg" alt="profile" className="mobile-view-icons" />
+          <img src="/static/icons/wallet.svg" alt="profile" className="mobile-view-icons" />
           <div className="low-balance-dot" />
           {showTip && (
             <div className="dropdown-push">

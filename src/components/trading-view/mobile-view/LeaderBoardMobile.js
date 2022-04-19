@@ -61,8 +61,8 @@ function LeaderBoardMobile() {
       {/* <p className="end-time">Leaderboard closes Sunday midnight and the top 3 win $2k of $LVRJ tokens.</p> */}
       <div className="top-rated-section">
         <div className="rated-1">
-          <img src="/icons/crown.png" alt="lvrj" className="crawn-img" />
-          <img src="/avatars/avatar_9.jpg" alt="avatar_1" className="avatar" />
+          <img src="/static/icons/crown.png" alt="lvrj" className="crawn-img" />
+          <img src="/static/mock-images/avatars/avatar_9.jpg" alt="avatar_1" className="avatar" />
           <p className="name">Hodges</p>
           <p className="badge pnl-color" onClick={() => handleShowTip(1)}>
             +2331%
@@ -83,7 +83,7 @@ function LeaderBoardMobile() {
         </div>
         <div className="rated-2">
           <p className="name">#2</p>
-          <img src="/avatars/avatar_10.jpg" alt="avatar_2" className="avatar" />
+          <img src="/static/mock-images/avatars/avatar_10.jpg" alt="avatar_2" className="avatar" />
           <p className="name">Johnny Rios</p>
           <p className="badge pnl-color" onClick={() => handleShowTip(2)}>
             +1832%
@@ -104,7 +104,7 @@ function LeaderBoardMobile() {
         </div>
         <div className="rated-3">
           <p className="name">#3</p>
-          <img src="/avatars/avatar_11.jpg" alt="avatar_3" className="avatar" />
+          <img src="/static/mock-images/avatars/avatar_11.jpg" alt="avatar_3" className="avatar" />
           <p className="name">Hammond</p>
           <p className="badge pnl-color" onClick={() => handleShowTip(3)}>
             +1384%

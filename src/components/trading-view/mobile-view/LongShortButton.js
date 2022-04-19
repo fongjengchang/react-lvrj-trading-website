@@ -3,8 +3,14 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import ArrowUp from '../../../assets/arrow-up.svg';
 import ArrowDown from '../../../assets/arrow-down.svg';
+
+LongShortButton.propTypes = {
+  onShowLongShort: PropTypes.func
+}
 
 function LongShortButton({ onShowLongShort }) {
   return (

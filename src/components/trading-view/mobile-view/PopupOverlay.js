@@ -1,6 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
+
+import PropTypes from 'prop-types';
+
 import { AiOutlineClose } from 'react-icons/ai';
+
+PopupOverlay.propTypes = {
+  onHideOverlay: PropTypes.func
+}
 
 function PopupOverlay({ onHideOverlay }) {
   return (
@@ -14,7 +21,7 @@ function PopupOverlay({ onHideOverlay }) {
           <span className="large-label">$42.46</span>
         </div>
         <div className="trade-info flex-start">
-          <img src="/icons/status.png" alt="lvrj" className="tab-button-icon" /> <h4>My Stats</h4>
+          <img src="/static/icons/status.png" alt="lvrj" className="tab-button-icon" /> <h4>My Stats</h4>
         </div>
         <ul className="invoice-list">
           <li>
