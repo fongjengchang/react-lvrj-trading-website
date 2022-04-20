@@ -1,112 +1,78 @@
-import { Icon } from '@iconify/react';
-import googleFill from '@iconify/icons-eva/google-fill';
-import twitterFill from '@iconify/icons-eva/twitter-fill';
-import facebookFill from '@iconify/icons-eva/facebook-fill';
-import linkedinFill from '@iconify/icons-eva/linkedin-fill';
-import { Link as ScrollLink } from 'react-scroll';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { experimentalStyled as styled } from '@material-ui/core/styles';
-import { Grid, Link, Divider, Container, Typography, IconButton, Stack } from '@material-ui/core';
+import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { Grid, Link, Box, Container, Typography, Stack } from '@material-ui/core';
 //
 import Logo from '../../components/Logo';
 
 // ----------------------------------------------------------------------
 
-const SOCIALS = [
-  { name: 'FaceBook', icon: facebookFill },
-  { name: 'Google', icon: googleFill },
-  { name: 'Linkedin', icon: linkedinFill },
-  { name: 'Twitter', icon: twitterFill }
-];
-
 const LINKS = [
   {
-    headline: 'Minimal',
+    headline: 'Socials',
     children: [
-      { name: 'About us', href: '#' },
-      { name: 'Contact us', href: '#' },
-      { name: 'FAQs', href: '#' }
-    ]
-  },
-  {
-    headline: 'Legal',
-    children: [
-      { name: 'Terms and Condition', href: '#' },
-      { name: 'Privacy Policy', href: '#' }
-    ]
-  },
-  {
-    headline: 'Contact',
-    children: [
-      { name: 'support@minimals.cc', href: '#' },
-      { name: 'Los Angeles, 359  Hidden Valley Road', href: '#' }
+      { name: 'Discord', href: '#' },
+      { name: 'Medium', href: '#' },
+      { name: 'Twitter', href: '#' }
     ]
   }
 ];
 
 const RootStyle = styled('div')(({ theme }) => ({
   position: 'relative',
-  backgroundColor: theme.palette.background.default
+  paddingTop: theme.spacing(10),
+  paddingBottom: theme.spacing(10),
+  backgroundColor: theme.palette.primary.dark
 }));
 
 // ----------------------------------------------------------------------
 
 export default function MainFooter() {
+  const theme = useTheme();
   return (
     <RootStyle>
-      <Divider />
-      <Container maxWidth="lg" sx={{ pt: 10 }}>
+      <Container maxWidth="lg">
         <Grid
           container
           justifyContent={{ xs: 'center', md: 'space-between' }}
           sx={{ textAlign: { xs: 'center', md: 'left' } }}
         >
-          <Grid item xs={12} sx={{ mb: 3 }}>
-            <ScrollLink to="move_top" spy smooth>
-              <Logo sx={{ mx: { xs: 'auto', md: 'inherit' } }} />
-            </ScrollLink>
-          </Grid>
-          <Grid item xs={8} md={3}>
-            <Typography variant="body2" sx={{ pr: { md: 5 } }}>
-              The starting point for your next project with Minimal UI Kit, built on the newest version of Material-UI
-              ©, ready to be customized to your style.
+          <Grid item xs={8} md={4}>
+            <Logo
+              sx={{ [theme.breakpoints.up('md')]: { margin: '0 !important' }, mx: { xs: 'auto', md: 'inherit' } }}
+            />
+            <Typography variant="body2" color="common.white" mt={2} sx={{ pr: { md: 5 } }}>
+              Lrvj uses a real-time custom Chainlink DON that aggregates pricing data from 8 exchanges, while other
+              platforms generate
             </Typography>
-
-            <Stack
-              spacing={1.5}
-              direction="row"
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-              sx={{ mt: 5, mb: { xs: 5, md: 0 } }}
-            >
-              {SOCIALS.map((social) => (
-                <IconButton key={social.name} color="primary" sx={{ p: 1 }}>
-                  <Icon icon={social.icon} width={16} height={16} />
-                </IconButton>
-              ))}
-            </Stack>
           </Grid>
 
-          <Grid item xs={12} md={7}>
-            <Stack spacing={5} direction={{ xs: 'column', md: 'row' }} justifyContent="space-between">
+          <Grid item xs={12} md={8}>
+            <Stack spacing={5} direction={{ xs: 'column', md: 'row' }} justifyContent="center">
               {LINKS.map((list) => {
                 const { headline, children } = list;
                 return (
                   <Stack key={headline} spacing={2}>
-                    <Typography component="p" variant="overline">
+                    <Typography component="p" variant="overline" color="common.white">
                       {headline}
                     </Typography>
-                    {children.map((link) => (
-                      <Link
-                        to={link.href}
-                        key={link.name}
-                        color="inherit"
-                        variant="body2"
-                        component={RouterLink}
-                        sx={{ display: 'block' }}
-                      >
-                        {link.name}
-                      </Link>
+                    {children.map((link, i) => (
+                      <Stack key={link.name} spacing={1.5} direction="row" alignItems="center" justifyContent="center">
+                        <Box
+                          component="img"
+                          sx={{ width: 25, height: 'auto' }}
+                          src={`/static/home/social-${i + 1}.svg`}
+                        />
+                        <Link
+                          to={link.href}
+                          color="common.white"
+                          variant="body2"
+                          component={RouterLink}
+                          sx={{ display: 'block' }}
+                        >
+                          {link.name}
+                        </Link>
+                      </Stack>
                     ))}
                   </Stack>
                 );
@@ -114,19 +80,6 @@ export default function MainFooter() {
             </Stack>
           </Grid>
         </Grid>
-
-        <Typography
-          component="p"
-          variant="body2"
-          sx={{
-            mt: 10,
-            pb: 5,
-            fontSize: 13,
-            textAlign: { xs: 'center', md: 'left' }
-          }}
-        >
-          © 2021. All rights reserved
-        </Typography>
       </Container>
     </RootStyle>
   );

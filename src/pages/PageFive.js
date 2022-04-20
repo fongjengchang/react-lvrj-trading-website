@@ -7,7 +7,7 @@ import Page from '../components/Page';
 
 export default function PageFive() {
   return (
-    <Page title="Page Five | Minimal-UI">
+    <Page title="Page Five | LVRJ">
       <Container maxWidth="xl">
         <Typography variant="h3" component="h1" paragraph>
           Page Five

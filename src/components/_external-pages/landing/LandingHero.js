@@ -1,140 +1,170 @@
 import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
-import flashFill from '@iconify/icons-eva/flash-fill';
+import navigation2Outline from '@iconify/icons-eva/navigation-2-outline';
+import trendingUpFill from '@iconify/icons-eva/trending-up-fill';
 import { Link as RouterLink } from 'react-router-dom';
 // material
-import { experimentalStyled as styled } from '@material-ui/core/styles';
-import { Button, Box, Link, Container, Typography, Stack } from '@material-ui/core';
+import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { Button, Container, Typography, Stack } from '@material-ui/core';
 // routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
 //
-import { varFadeIn, varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
+import { varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
-  backgroundColor: theme.palette.grey[400],
+  backgroundColor: theme.palette.grey[900],
   [theme.breakpoints.up('md')]: {
     top: 0,
     left: 0,
     width: '100%',
-    height: '100vh',
     display: 'flex',
-    position: 'fixed',
     alignItems: 'center'
   }
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   zIndex: 10,
-  maxWidth: 520,
+  maxWidth: 540,
   margin: 'auto',
   textAlign: 'center',
   position: 'relative',
-  paddingTop: theme.spacing(15),
-  paddingBottom: theme.spacing(15),
+  paddingTop: theme.spacing(10),
+  paddingBottom: theme.spacing(10),
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
+    paddingTop: theme.spacing(15),
+    paddingBottom: theme.spacing(15),
     textAlign: 'left'
   }
 }));
 
-const HeroOverlayStyle = styled(motion.img)({
-  zIndex: 9,
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  position: 'absolute'
-});
-
 const HeroImgStyle = styled(motion.img)(({ theme }) => ({
-  top: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 8,
   width: '100%',
   margin: 'auto',
-  position: 'absolute',
   filter: `drop-shadow(40px 80px 80px rgba(0, 0, 0, 0.48))`,
   [theme.breakpoints.up('lg')]: {
+    bottom: 0,
     right: '8%',
+    position: 'absolute',
     width: 'auto',
-    height: '48vh'
+    height: '62vh'
   }
 }));
 
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
+  const theme = useTheme();
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <HeroOverlayStyle alt="overlay" src="/static/overlay.svg" variants={varFadeIn} />
-
-        <HeroImgStyle alt="hero" src="/static/home/hero.png" variants={varFadeInUp} />
-
         <Container maxWidth="lg">
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h1" sx={{ color: 'common.white' }}>
-                Start a <br />
-                new project <br /> with
-                <Typography component="span" variant="h1" sx={{ color: 'primary.main' }}>
-                  &nbsp;Minimal
+              <Typography
+                variant="h3"
+                sx={{
+                  border: `4px dotted ${theme.palette.primary.light}`,
+                  width: 'fit-content',
+                  padding: '5px 30px',
+                  color: 'primary.light'
+                }}
+              >
+                Trade
+              </Typography>
+              <Typography
+                variant="h2"
+                sx={{ color: 'common.white', textAlign: 'left', fontWeight: 900, fontFamily: 'monospace' }}
+              >
+                Cryptos, Stocks, <br />
+                Commodities{' '}
+                <Typography component="span" variant="h2" sx={{ fontWeight: 100, fontFamily: 'monospace' }}>
+                  and
+                </Typography>{' '}
+                <br />
+                Forex{' '}
+                <Typography component="span" variant="h2" sx={{ fontWeight: 100, fontFamily: 'monospace' }}>
+                  with Leverage!
                 </Typography>
               </Typography>
             </motion.div>
 
-            <motion.div variants={varFadeInRight}>
-              <Typography sx={{ color: 'common.white' }}>
-                The starting point for your next project based on easy-to-customize Material-UI © helps you build apps
-                faster and better.
-              </Typography>
-            </motion.div>
-
-            <Stack
-              component={motion.div}
-              variants={varFadeInRight}
-              direction="row"
-              spacing={1}
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-            >
-              <img alt="sketch icon" src="/static/home/ic_sketch.svg" width={20} height={20} />
-              <Link
-                underline="always"
-                href="https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0"
-                target="_blank"
-                sx={{ color: 'common.white' }}
+            <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'left', md: 'flex-start' }}>
+              <Stack
+                component={motion.div}
+                variants={varFadeInRight}
+                direction="row"
+                spacing={1}
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
               >
-                Preview in Sketch Cloud
-              </Link>
+                <img alt="sketch icon" src="/static/home/hero-tick.svg" width={20} height={20} />
+                <Typography variant="body2" color="common.white">
+                  No Sign Up!
+                </Typography>
+              </Stack>
+
+              <Stack
+                component={motion.div}
+                variants={varFadeInRight}
+                direction="row"
+                spacing={1}
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
+              >
+                <img alt="sketch icon" src="/static/home/hero-tick.svg" width={20} height={20} />
+                <Typography variant="body2" color="common.white">
+                  No KYC!
+                </Typography>
+              </Stack>
             </Stack>
-
-            <motion.div variants={varFadeInRight}>
-              <Button
-                size="large"
-                variant="contained"
-                component={RouterLink}
-                to={PATH_DASHBOARD.root}
-                startIcon={<Icon icon={flashFill} width={20} height={20} />}
+            <Stack
+              direction="row"
+              spacing={1.5}
+              justifyContent={{ xs: 'left', md: 'flex-start', marginTop: '10px !important' }}
+            >
+              <Stack
+                component={motion.div}
+                variants={varFadeInRight}
+                direction="row"
+                spacing={1}
+                justifyContent={{ xs: 'center', md: 'flex-start' }}
               >
-                Live Preview
-              </Button>
-            </motion.div>
+                <img alt="sketch icon" src="/static/home/hero-tick.svg" width={20} height={20} />
+                <Typography variant="body2" color="common.white">
+                  Fully Decentralised!
+                </Typography>
+              </Stack>
+            </Stack>
 
             <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
-              <motion.img variants={varFadeInRight} src="/static/home/ic_m_sketch.svg" />
-              <motion.img variants={varFadeInRight} src="/static/home/ic_m_figma.svg" />
-              <motion.img variants={varFadeInRight} src="/static/home/ic_m_material.svg" />
-              <motion.img variants={varFadeInRight} src="/static/home/ic_m_react.svg" />
-              <motion.img variants={varFadeInRight} src="/static/home/ic_m_js.svg" />
-              <motion.img variants={varFadeInRight} src="/static/home/ic_m_ts.svg" />
+              <motion.div variants={varFadeInRight}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  component={RouterLink}
+                  to="/"
+                  startIcon={<Icon icon={navigation2Outline} width={20} height={20} />}
+                >
+                  Join Precale
+                </Button>
+              </motion.div>
+              <motion.div variants={varFadeInRight}>
+                <Button
+                  size="large"
+                  variant="outlined"
+                  component={RouterLink}
+                  to="/"
+                  startIcon={<Icon icon={trendingUpFill} width={20} height={20} />}
+                >
+                  Demo Trade
+                </Button>
+              </motion.div>
             </Stack>
           </ContentStyle>
+          <HeroImgStyle alt="hero" src="/static/home/hero-img.png" variants={varFadeInUp} />
         </Container>
       </RootStyle>
-      <Box sx={{ height: { md: '100vh' } }} />
     </>
   );
 }

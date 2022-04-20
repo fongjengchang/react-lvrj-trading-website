@@ -6,7 +6,7 @@ import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
 import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
 // material
-import { alpha, experimentalStyled as styled } from '@material-ui/core/styles';
+import { alpha, experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
 import { Box, List, Drawer, Link, Collapse, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
 // components
 import Logo from '../../components/Logo';
@@ -134,6 +134,7 @@ MenuMobile.propTypes = {
 };
 
 export default function MenuMobile({ isOffset, isHome }) {
+  const theme = useTheme();
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -162,6 +163,7 @@ export default function MenuMobile({ isOffset, isHome }) {
       <MIconButton
         onClick={handleDrawerOpen}
         sx={{
+          fontSize: 30,
           ml: 1,
           ...(isHome && { color: 'common.white' }),
           ...(isOffset && { color: 'text.primary' })
@@ -175,6 +177,7 @@ export default function MenuMobile({ isOffset, isHome }) {
         onClose={handleDrawerClose}
         ModalProps={{ keepMounted: true }}
         PaperProps={{ sx: { pb: 5, width: 260 } }}
+        sx={{ '& .MuiPaper-root': { backgroundColor: theme.palette.grey[900] } }}
       >
         <Scrollbar>
           <Link component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>

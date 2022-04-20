@@ -4,11 +4,14 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import Page from '../components/Page';
 import {
   LandingHero,
-  LandingMinimal,
-  LandingDarkMode,
-  LandingAdvertisement,
-  LandingCleanInterfaces,
-  LandingHugePackElements
+  PoweredBy,
+  Discover,
+  Borrowing,
+  GetPaid,
+  JoinOurComunity,
+  BondingDeflation,
+  Prescale,
+  SyntheticArchitecture
 } from '../components/_external-pages/landing';
 
 // ----------------------------------------------------------------------
@@ -27,14 +30,17 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function LandingPage() {
   return (
-    <RootStyle title="The starting point for your next project | Minimal-UI" id="move_top">
+    <RootStyle title="Home | LVRJ" id="move_top">
       <LandingHero />
       <ContentStyle>
-        <LandingMinimal />
-        <LandingHugePackElements />
-        <LandingDarkMode />
-        <LandingCleanInterfaces />
-        <LandingAdvertisement />
+        <PoweredBy />
+        <Discover />
+        <Borrowing />
+        <GetPaid />
+        <SyntheticArchitecture />
+        <Prescale />
+        <BondingDeflation />
+        <JoinOurComunity />
       </ContentStyle>
     </RootStyle>
   );

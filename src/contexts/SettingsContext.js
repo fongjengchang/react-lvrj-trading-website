@@ -115,7 +115,7 @@ SettingsProvider.propTypes = {
 
 function SettingsProvider({ children }) {
   const [settings, setSettings] = useLocalStorage('settings', {
-    themeMode: 'light',
+    themeMode: 'dark',
     themeDirection: 'ltr',
     themeColor: 'default'
   });

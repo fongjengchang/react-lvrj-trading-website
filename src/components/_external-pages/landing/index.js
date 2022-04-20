@@ -1,6 +1,9 @@
 export { default as LandingHero } from './LandingHero';
-export { default as LandingMinimal } from './LandingMinimal';
-export { default as LandingDarkMode } from './LandingDarkMode';
-export { default as LandingAdvertisement } from './LandingAdvertisement';
-export { default as LandingCleanInterfaces } from './LandingCleanInterfaces';
-export { default as LandingHugePackElements } from './LandingHugePackElements';
+export { default as PoweredBy } from './PoweredBy';
+export { default as Discover } from './Discover';
+export { default as Borrowing } from './Borrowing';
+export { default as GetPaid } from './GetPaid';
+export { default as JoinOurComunity } from './JoinOurComunity';
+export { default as BondingDeflation } from './BondingDeflation';
+export { default as Prescale } from './Prescale';
+export { default as SyntheticArchitecture } from './SyntheticArchitecture';
