@@ -4,6 +4,7 @@ import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles
 import { Container, Button, Typography, Stack, Box } from '@material-ui/core';
 //
 import { varWrapEnter, varFadeInRight, varFadeInUp } from '../../animate';
+import { MHidden } from '../../@material-extend';
 
 // ----------------------------------------------------------------------
 
@@ -57,7 +58,10 @@ export default function Prescale() {
         <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white', fontWeight: 100, fontFamily: 'monospace' }}>
+              <Typography
+                variant="h2"
+                sx={{ color: 'common.white', fontWeight: 100, fontFamily: 'JetBrains Mono, monospace' }}
+              >
                 Join Our
                 <Typography component="span" variant="h2" sx={{ fontWeight: 900, color: 'common.white' }}>
                   &nbsp;Presale
@@ -76,13 +80,17 @@ export default function Prescale() {
                 <Button variant="contained" color="secondary">
                   Join Prescale
                 </Button>
-                <Button variant="contained" color="secondary">
-                  Read Litepaper
-                </Button>
+                <MHidden width="mdDown">
+                  <Button variant="contained" color="secondary">
+                    Read Litepaper
+                  </Button>
+                </MHidden>
               </Stack>
             </motion.div>
           </ContentStyle>
-          <PrescaleImgStyle alt="hero" src="/static/home/presale-img.png" variants={varFadeInUp} />
+          <MHidden width="mdDown">
+            <PrescaleImgStyle alt="hero" src="/static/home/presale-img.png" variants={varFadeInUp} />
+          </MHidden>
           <motion.div variants={varFadeInUp}>
             <Box m={3} />
             <Typography variant="body1" sx={{ fontWeight: 100, color: theme.palette.grey[100] }}>

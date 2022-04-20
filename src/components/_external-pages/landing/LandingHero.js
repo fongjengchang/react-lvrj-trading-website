@@ -26,7 +26,7 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   zIndex: 10,
-  maxWidth: 540,
+  maxWidth: 600,
   margin: 'auto',
   textAlign: 'center',
   position: 'relative',
@@ -76,16 +76,29 @@ export default function LandingHero() {
               </Typography>
               <Typography
                 variant="h2"
-                sx={{ color: 'common.white', textAlign: 'left', fontWeight: 900, fontFamily: 'monospace' }}
+                sx={{
+                  color: 'common.white',
+                  textAlign: 'left',
+                  fontWeight: 900,
+                  fontFamily: 'JetBrains Mono, monospace'
+                }}
               >
                 Cryptos, Stocks, <br />
                 Commodities{' '}
-                <Typography component="span" variant="h2" sx={{ fontWeight: 100, fontFamily: 'monospace' }}>
+                <Typography
+                  component="span"
+                  variant="h2"
+                  sx={{ fontWeight: 100, fontFamily: 'JetBrains Mono, monospace' }}
+                >
                   and
                 </Typography>{' '}
                 <br />
                 Forex{' '}
-                <Typography component="span" variant="h2" sx={{ fontWeight: 100, fontFamily: 'monospace' }}>
+                <Typography
+                  component="span"
+                  variant="h2"
+                  sx={{ fontWeight: 100, fontFamily: 'JetBrains Mono, monospace' }}
+                >
                   with Leverage!
                 </Typography>
               </Typography>

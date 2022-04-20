@@ -27,7 +27,12 @@ export default function PoweredBy() {
           <motion.div variants={varFadeInRight}>
             <Typography
               variant="h3"
-              sx={{ color: 'common.white', textAlign: 'center', fontWeight: 900, fontFamily: 'monospace' }}
+              sx={{
+                color: 'common.white',
+                textAlign: 'center',
+                fontWeight: 900,
+                fontFamily: 'JetBrains Mono, monospace'
+              }}
             >
               Powered by
             </Typography>

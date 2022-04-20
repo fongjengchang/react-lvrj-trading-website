@@ -18,8 +18,8 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   margin: 'auto',
   textAlign: 'left',
   position: 'relative',
-  paddingTop: theme.spacing(2),
-  paddingBottom: theme.spacing(2),
+  paddingTop: theme.spacing(10),
+  paddingBottom: theme.spacing(10),
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
     textAlign: 'left',
@@ -33,7 +33,7 @@ const DAIImgStyle = styled(motion.img)(({ theme }) => ({
   right: 0,
   zIndex: 8,
   position: 'relative',
-  height: '20vh',
+  height: '35vh',
   width: 'auto',
   margin: 'auto',
   filter: `drop-shadow(40px 80px 80px rgba(0, 0, 0, 0.48))`,
@@ -55,7 +55,7 @@ export default function GetPaid() {
         <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'monospace' }}>
+              <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'JetBrains Mono, monospace' }}>
                 Trade in
                 <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
                   &nbsp;DAI
@@ -95,10 +95,10 @@ export default function GetPaid() {
             sx={{ [theme.breakpoints.up('md')]: { marginTop: '-130px' } }}
           />
         </motion.div>
-        <Container sx={{ position: 'relative' }}>
+        <Container sx={{ position: 'relative', paddingBottom: 15 }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'monospace' }}>
+              <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'JetBrains Mono, monospace' }}>
                 You maintain custody of your funds–no KYC required.
               </Typography>
             </motion.div>

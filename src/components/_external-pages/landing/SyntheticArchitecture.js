@@ -124,7 +124,10 @@ export default function SyntheticArchitecture() {
         <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.black', fontWeight: 900, fontFamily: 'monospace' }}>
+              <Typography
+                variant="h2"
+                sx={{ color: 'common.black', fontWeight: 900, fontFamily: 'JetBrains Mono, monospace' }}
+              >
                 A unique, fully- <br /> synthetic architecture
               </Typography>
             </motion.div>

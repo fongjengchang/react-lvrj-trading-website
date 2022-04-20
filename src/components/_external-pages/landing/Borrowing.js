@@ -14,8 +14,10 @@ const RootStyle = styled(motion.div)(() => ({
 
 const LeverageImgStyle = styled('img')(({ theme }) => ({
   width: '100%',
-  [theme.breakpoints.down('md')]: {
-    minHeight: 200
+  [theme.breakpoints.down('sm')]: {
+    minHeight: '260px',
+    minWidth: '640px',
+    transform: 'translateX(-20%)'
   }
 }));
 
@@ -32,6 +34,7 @@ export default function Borrowing() {
             width: 300,
             paddingTop: theme.spacing(2),
             left: '50%',
+            zIndex: 2,
             transform: 'translateX(-50%)',
             [theme.breakpoints.up('md')]: {
               width: 750,
@@ -50,9 +53,10 @@ export default function Borrowing() {
               textAlign: 'center',
               fontWeight: 900,
               width: '100%',
-              fontFamily: 'monospace',
+              fontFamily: 'JetBrains Mono, monospace',
               [theme.breakpoints.down('md')]: {
-                fontSize: 30
+                fontSize: 20,
+                marginTop: '30px'
               }
             }}
           >

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Box, Typography, Stack, Container, Divider, Grid, Button } from '@material-ui/core';
+import { MHidden } from '../../@material-extend';
 //
 import { varWrapEnter } from '../../animate';
 
@@ -27,7 +28,11 @@ export default function BondingDeflation() {
           <ContentStyle>
             <Grid container spacing={2}>
               <Grid item xs={12} md={5}>
-                <Typography variant="h2" color="primary.light" sx={{ fontFamily: 'monospace', marginBottom: 3 }}>
+                <Typography
+                  variant="h2"
+                  color="primary.light"
+                  sx={{ fontFamily: 'JetBrains Mono, monospace', marginBottom: 3 }}
+                >
                   Bonding Curve
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'common.white' }}>
@@ -47,13 +52,18 @@ export default function BondingDeflation() {
                 <Box component="img" src="/static/home/bonding-curve-img.svg" sx={{ marginTop: 10 }} />
               </Grid>
               <Grid item xs={12} md={2}>
-                <Divider orientation="vertical" flexItem />
+                <MHidden width="mdDown">
+                  <Divider orientation="vertical" sx={{ marginRight: '90px' }} />
+                </MHidden>
+                <MHidden width="mdUp">
+                  <Divider sx={{ marginTop: 3 }} flexItem />
+                </MHidden>
               </Grid>
               <Grid item xs={12} md={5}>
                 <Typography
                   variant="h2"
                   color="primary.light"
-                  sx={{ fontFamily: 'monospace', marginBottom: 3, marginTop: 5 }}
+                  sx={{ fontFamily: 'JetBrains Mono, monospace', marginBottom: 3, marginTop: 5 }}
                 >
                   Deflation
                 </Typography>
