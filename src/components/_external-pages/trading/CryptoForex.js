@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import PropTypes from 'prop-types';
-import { useTheme, withStyles } from '@material-ui/core/styles';
+import { useTheme, withStyles, alpha } from '@material-ui/core/styles';
 
 import {
   AppBar,
@@ -24,6 +24,10 @@ import { crypto, forex } from '../../../assets/real-time.json';
 
 const TableRowStyles = withStyles((theme) => ({
   root: {
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: `${alpha(theme.palette.grey[500], 0.12)}`
+    },
     '& .MuiTableCell-root': {
       [theme.breakpoints.down('md')]: {
         paddingLeft: theme.spacing(0),
