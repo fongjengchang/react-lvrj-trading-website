@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles, experimentalStyled as styled } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -94,12 +95,16 @@ const StopLess = () => (
   </Box>
 );
 
-const Leverage = () => (
+const Leverage = ({ sliderValue }) => (
   <Box>
-    <LeverageBadge>50x</LeverageBadge>
+    <LeverageBadge>{sliderValue}x</LeverageBadge>
     <Typography variant="body2">Leverage</Typography>
   </Box>
 );
+
+Leverage.propTypes = {
+  sliderValue: PropTypes.number
+};
 
 const TakeProfit = () => (
   <Box>
@@ -132,8 +137,10 @@ const profitsList = [
 ];
 
 export default function LongShort() {
+  const [sliderValue, setSliderValue] = useState(20);
   const [selectedTab, setSelectedTab] = useState(0);
   const [longShort, setLongShort] = useState('long');
+  const [trailingValue, setTrailingValue] = useState(3014);
 
   const handleChange = (event, value) => {
     if (value !== null) {
@@ -143,6 +150,10 @@ export default function LongShort() {
 
   const handleChangeTab = (event, newValue) => {
     setSelectedTab(newValue);
+  };
+
+  const handleSlider = (e) => {
+    setSliderValue(e.target.value);
   };
 
   return (
@@ -173,10 +184,16 @@ export default function LongShort() {
         <Typography variant="body2" sx={{ textAlign: 'center' }}>
           Leverage Slider
         </Typography>
-        <PrettoSlider max={250} valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
+        <PrettoSlider
+          max={250}
+          valueLabelDisplay="auto"
+          onChange={handleSlider}
+          aria-label="pretto slider"
+          defaultValue={20}
+        />
         <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-around' }}>
           <Typography variant="body2">0X</Typography>
-          <Typography variant="body2">10X</Typography>
+          <Typography variant="body2">{sliderValue}X</Typography>
           <Typography variant="body2">250X</Typography>
         </Stack>
         <Box m={2} />
@@ -191,7 +208,7 @@ export default function LongShort() {
               aria-label="disabled tabs example"
             >
               <Tab icon={<StopLess />} />
-              <Tab icon={<Leverage />} />
+              <Tab icon={<Leverage sliderValue={sliderValue} />} />
               <Tab icon={<TakeProfit />} />
             </Tabs>
           </Paper>
@@ -212,11 +229,17 @@ export default function LongShort() {
           </Stack>
           <Box m={2} />
           <Stack direction="row" spacing={2} justifyContent="space-between" alignItems="center">
-            <IconButton aria-label="delete">
+            <IconButton aria-label="minus" onClick={() => setTrailingValue(Number(trailingValue) - 1)}>
               <RemoveIcon />
             </IconButton>
-            <TextField size="small" sx={{ '& .MuiOutlinedInput-input': { textAlign: 'center' } }} value={45345} />
-            <IconButton aria-label="delete">
+            <TextField
+              size="small"
+              type="number"
+              onChange={(e) => setTrailingValue(e.target.value)}
+              sx={{ '& .MuiOutlinedInput-input': { textAlign: 'center' } }}
+              value={trailingValue}
+            />
+            <IconButton aria-label="plus" onClick={() => setTrailingValue(Number(trailingValue) + 1)}>
               <AddIcon />
             </IconButton>
           </Stack>
