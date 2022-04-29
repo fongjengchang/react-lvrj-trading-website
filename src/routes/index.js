@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Navigate, useRoutes, useLocation } from 'react-router-dom';
 // layouts
 import MainLayout from '../layouts/main';
-import DashboardLayout from '../layouts/dashboard';
+import TradingLayout from '../layouts/trading';
 import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
 // components
 import LoadingScreen from '../components/LoadingScreen';
@@ -37,30 +37,6 @@ const Loadable = (Component) => (props) => {
 
 export default function Router() {
   return useRoutes([
-    // Dashboard Routes
-    {
-      path: 'dashboard',
-      element: <DashboardLayout />,
-      children: [
-        { path: '/', element: <Navigate to="/dashboard/one" replace /> },
-        { path: 'one', element: <PageOne /> },
-        { path: 'two', element: <PageTwo /> },
-        { path: 'three', element: <PageThree /> },
-        {
-          path: 'app',
-          children: [
-            {
-              path: '/',
-              element: <Navigate to="/dashboard/app/four" replace />
-            },
-            { path: 'four', element: <PageFour /> },
-            { path: 'five', element: <PageFive /> },
-            { path: 'six', element: <PageSix /> }
-          ]
-        }
-      ]
-    },
-
     // Main Routes
     {
       path: '*',
@@ -77,7 +53,12 @@ export default function Router() {
     },
     {
       path: '/trading-view',
-      element: <TradingPage />
+      element: <TradingLayout />,
+      children: [{ path: '/', element: <TradingPage /> }]
+    },
+    {
+      path: '/trading-old-view',
+      element: <TradingOldPage />
     },
     { path: '*', element: <Navigate to="/404" replace /> }
   ]);
@@ -85,14 +66,8 @@ export default function Router() {
 
 // IMPORT COMPONENTS
 
-// Dashboard
-const PageOne = Loadable(lazy(() => import('../pages/PageOne')));
-const PageTwo = Loadable(lazy(() => import('../pages/PageTwo')));
-const PageThree = Loadable(lazy(() => import('../pages/PageThree')));
-const PageFour = Loadable(lazy(() => import('../pages/PageFour')));
-const PageFive = Loadable(lazy(() => import('../pages/PageFive')));
-const PageSix = Loadable(lazy(() => import('../pages/PageSix')));
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // Main
 const LandingPage = Loadable(lazy(() => import('../pages/LandingPage')));
 const TradingPage = Loadable(lazy(() => import('../pages/TradingPage')));
+const TradingOldPage = Loadable(lazy(() => import('../pages/TradingOldPage')));

@@ -57,13 +57,21 @@ export default function GetPaid() {
             <motion.div variants={varFadeInRight}>
               <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'JetBrains Mono, monospace' }}>
                 Trade in
-                <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
+                <Typography
+                  component="span"
+                  variant="h2"
+                  sx={{ color: 'primary.main', fontFamily: 'JetBrains Mono, monospace' }}
+                >
                   &nbsp;DAI
                 </Typography>
                 ,
                 <br />
                 get paid in
-                <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
+                <Typography
+                  component="span"
+                  variant="h2"
+                  sx={{ color: 'primary.main', fontFamily: 'JetBrains Mono, monospace' }}
+                >
                   &nbsp;DAI
                 </Typography>
                 ,

@@ -141,7 +141,12 @@ export default function SyntheticArchitecture() {
           <ArchitectureImgStyle alt="hero" src="/static/home/architecture-img.png" variants={varFadeInUp} />
           {/* Accordian */}
           {architectures.map((item, i) => (
-            <Accordion key={i} expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
+            <Accordion
+              key={i}
+              expanded={expanded === `panel${i + 1}`}
+              onChange={handleChange(`panel${i + 1}`)}
+              sx={{ backgroundColor: 'common.white' }}
+            >
               <AccordianStyle aria-controls="panel1bh-content" id="panel1bh-header">
                 <Stack direction="row" spacing={2}>
                   <Box component="img" src="/static/home/architecture-tick.svg" sx={{ width: 25, height: 'auto' }} />
@@ -150,13 +155,20 @@ export default function SyntheticArchitecture() {
                   </Typography>
                 </Stack>
                 <MHidden width="mdDown">
-                  <Box sx={{ padding: theme.spacing(1, 2), backgroundColor: theme.palette.grey[300], borderRadius: 3 }}>
+                  <Box
+                    sx={{
+                      padding: theme.spacing(1, 2),
+                      color: 'common.black',
+                      backgroundColor: theme.palette.grey[300],
+                      borderRadius: 3
+                    }}
+                  >
                     {expanded === `panel${i + 1}` ? 'See Less' : 'Learn More'}
                   </Box>
                 </MHidden>
               </AccordianStyle>
               <AccordionDetails>
-                <Typography sx={{ marginLeft: 5 }}>{item.content}</Typography>
+                <Typography sx={{ marginLeft: 5, color: 'common.black' }}>{item.content}</Typography>
               </AccordionDetails>
             </Accordion>
           ))}

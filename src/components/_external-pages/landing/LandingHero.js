@@ -167,7 +167,7 @@ export default function LandingHero() {
                   size="large"
                   variant="outlined"
                   component={RouterLink}
-                  to="/"
+                  to="/trading-view"
                   startIcon={<Icon icon={trendingUpFill} width={20} height={20} />}
                 >
                   Demo Trade

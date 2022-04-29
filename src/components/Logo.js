@@ -11,15 +11,24 @@ Logo.propTypes = {
 
 export default function Logo({ sx }) {
   const theme = useTheme();
-  // const PRIMARY_LIGHT = theme.palette.primary.light;
-  // const PRIMARY_MAIN = theme.palette.primary.main;
-  // const PRIMARY_DARK = theme.palette.primary.dark;
+
+  const isLight = theme.palette.mode === 'light';
 
   return (
-    <Box
-      component="img"
-      src="/static/brand/lvrj-logo.svg"
-      sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 40 } }}
-    />
+    <>
+      {isLight ? (
+        <Box
+          component="img"
+          src="/static/brand/light-lvrj-logo.svg"
+          sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 40 } }}
+        />
+      ) : (
+        <Box
+          component="img"
+          src="/static/brand/dark-lvrj-logo.svg"
+          sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 40 } }}
+        />
+      )}
+    </>
   );
 }

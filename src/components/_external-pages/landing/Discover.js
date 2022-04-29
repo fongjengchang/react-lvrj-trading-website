@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { experimentalStyled as styled, useTheme, withStyles } from '@material-ui/core/styles';
 import { Divider, Typography, Stack, Button, Container, Box } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,8 +9,37 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 //
 import { varWrapEnter } from '../../animate';
+import { MHidden } from '../../@material-extend';
 
 // ----------------------------------------------------------------------
+
+const TableRowStyle = withStyles((theme) => ({
+  root: {
+    '& .MuiTableCell-root': {
+      [theme.breakpoints.down('md')]: {
+        padding: 0,
+        paddingTop: 5,
+        paddingBottom: 5
+      }
+    },
+    '& .MuiTableCell-head': {
+      backgroundColor: '#F4F6F8',
+      '&:first-child': {
+        [theme.breakpoints.down('md')]: {
+          paddingLeft: theme.spacing(1)
+        }
+      }
+    },
+    [theme.breakpoints.down('md')]: {
+      '& .MuiTypography-subtitle1': {
+        fontSize: 13
+      }
+    },
+    '& .MuiTableCell-root:first-of-type, .MuiTableCell-root:last-of-type': {
+      boxShadow: 'none'
+    }
+  }
+}))(TableRow);
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
@@ -63,24 +92,28 @@ const discovers = [
 const TableContent = () => (
   <Table aria-label="simple table">
     <TableHead>
-      <TableRow>
+      <TableRowStyle>
         <TableCell>Markets</TableCell>
         <TableCell align="center">Last Price</TableCell>
         <TableCell align="center">Change</TableCell>
         <TableCell align="center">% Change</TableCell>
-      </TableRow>
+      </TableRowStyle>
     </TableHead>
     <TableBody>
       {rows.map((row, i) => (
-        <TableRow key={i}>
+        <TableRowStyle key={i}>
           <TableCell component="th" scope="row">
             <Stack direction="row" spacing={0.5} alignItems="center">
               <Box component="img" src={`/static/home/assets-${i + 1}.svg`} />
-              <Typography variant="subtitle1">{row.markets}</Typography>
+              <Typography variant="subtitle1" color="common.black">
+                {row.markets}
+              </Typography>
             </Stack>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="subtitle1">{row.lastPrice}</Typography>
+            <Typography variant="subtitle1" color="common.black">
+              {row.lastPrice}
+            </Typography>
           </TableCell>
           <TableCell align="center">
             <Typography variant="subtitle1" color={i === 2 || i === 4 ? 'error.main' : 'primary.main'}>
@@ -92,7 +125,7 @@ const TableContent = () => (
               {row.pChange}
             </Typography>
           </TableCell>
-        </TableRow>
+        </TableRowStyle>
       ))}
     </TableBody>
   </Table>
@@ -103,7 +136,7 @@ export default function Discover() {
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <Container>
+        <Container sx={{ [theme.breakpoints.down('md')]: { padding: 0 } }}>
           <ContentStyle>
             <Typography
               variant="h2"
@@ -133,7 +166,7 @@ export default function Discover() {
                 justifyContent: 'space-between',
                 overflowX: 'auto',
                 width: '100%',
-                '& > *': { margin: `${theme.spacing(2)} !important` }
+                '& > *': { margin: `${theme.spacing(1)} !important` }
               }}
             >
               {discovers.map((item) => (
@@ -152,8 +185,10 @@ export default function Discover() {
             </Box>
             <Stack direction="row" spacing={1} sx={{ overflowX: 'auto' }}>
               <TableContent />
-              <Divider orientation="vertical" flexItem />
-              <TableContent />
+              <MHidden width="mdDown">
+                <Divider orientation="vertical" flexItem />
+                <TableContent />
+              </MHidden>
             </Stack>
           </ContentStyle>
         </Container>

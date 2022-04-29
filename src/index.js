@@ -13,17 +13,7 @@ import * as serviceWorker from './serviceWorker';
 import reportWebVitals from './reportWebVitals';
 
 // // import styling
-import './assets/css/common.css';
-// import './assets/css/hero.css';
-// import './assets/css/navbar.css';
-// import './assets/css/trading-view.css';
-// import './assets/css/trading-dashboard.css';
-// import './assets/css/search-input.css';
-// import './assets/css/mobile-section.css';
-// import './assets/css/profile.css';
-// import './assets/css/popup.css';
-// import './assets/css/mobile-leaderboard.css';
-
+// import './assets/css/common.css';
 // ----------------------------------------------------------------------
 
 ReactDOM.render(
