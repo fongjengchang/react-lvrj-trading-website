@@ -45,7 +45,7 @@ function CryptoForex({ onHideSearch }) {
     const newForex = [];
 
     // eslint-disable-next-line
-        crypto.map((pair) => {
+    crypto.map((pair) => {
       const row = {
         pair,
         price: (Math.random() * 80.0 + 100).toFixed(3),
