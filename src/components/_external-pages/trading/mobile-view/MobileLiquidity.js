@@ -219,6 +219,7 @@ export default function MobileLiquidity() {
           <Typography variant="caption">Removes</Typography>
         </Stack>
       </Stack>
+      <Box m={2} />
       <LiquidityTable data={sampleData} />
     </div>
   );

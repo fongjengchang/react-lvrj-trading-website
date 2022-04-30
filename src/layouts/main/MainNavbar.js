@@ -44,10 +44,10 @@ export default function MainNavbar() {
 
           <MHidden width="mdDown">
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
+            <Button variant="contained" target="_self" href="#">
+              Join Presale
+            </Button>
           </MHidden>
-          <Button variant="contained" target="_self" href="#">
-            Join Presale
-          </Button>
           <MHidden width="mdUp">
             <MenuMobile isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
           </MHidden>
