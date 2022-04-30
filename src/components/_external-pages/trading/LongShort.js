@@ -109,7 +109,9 @@ Leverage.propTypes = {
 const TakeProfit = () => (
   <Box>
     <TakeProfitBadge>$599.31</TakeProfitBadge>
-    <Typography variant="body2">Take Profit</Typography>
+    <Typography variant="body2" sx={{ letterSpacing: '-1px' }}>
+      Take Profit
+    </Typography>
   </Box>
 );
 
