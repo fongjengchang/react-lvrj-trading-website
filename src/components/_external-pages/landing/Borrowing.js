@@ -53,7 +53,6 @@ export default function Borrowing() {
               textAlign: 'center',
               fontWeight: 900,
               width: '100%',
-              fontFamily: 'JetBrains Mono, monospace',
               [theme.breakpoints.down('md')]: {
                 fontSize: 20,
                 marginTop: '30px'

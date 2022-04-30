@@ -79,26 +79,17 @@ export default function LandingHero() {
                 sx={{
                   color: 'common.white',
                   textAlign: 'left',
-                  fontWeight: 900,
-                  fontFamily: 'JetBrains Mono, monospace'
+                  fontWeight: 900
                 }}
               >
                 Cryptos, Stocks, <br />
                 Commodities{' '}
-                <Typography
-                  component="span"
-                  variant="h2"
-                  sx={{ fontWeight: 100, fontFamily: 'JetBrains Mono, monospace' }}
-                >
+                <Typography component="span" variant="h2" sx={{ fontWeight: 100 }}>
                   and
                 </Typography>{' '}
                 <br />
                 Forex{' '}
-                <Typography
-                  component="span"
-                  variant="h2"
-                  sx={{ fontWeight: 100, fontFamily: 'JetBrains Mono, monospace' }}
-                >
+                <Typography component="span" variant="h2" sx={{ fontWeight: 100 }}>
                   with Leverage!
                 </Typography>
               </Typography>

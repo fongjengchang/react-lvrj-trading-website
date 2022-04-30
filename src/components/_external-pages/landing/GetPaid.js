@@ -55,23 +55,15 @@ export default function GetPaid() {
         <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'JetBrains Mono, monospace' }}>
+              <Typography variant="h2" sx={{ color: 'common.white' }}>
                 Trade in
-                <Typography
-                  component="span"
-                  variant="h2"
-                  sx={{ color: 'primary.main', fontFamily: 'JetBrains Mono, monospace' }}
-                >
+                <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
                   &nbsp;DAI
                 </Typography>
                 ,
                 <br />
                 get paid in
-                <Typography
-                  component="span"
-                  variant="h2"
-                  sx={{ color: 'primary.main', fontFamily: 'JetBrains Mono, monospace' }}
-                >
+                <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
                   &nbsp;DAI
                 </Typography>
                 ,
@@ -106,7 +98,7 @@ export default function GetPaid() {
         <Container sx={{ position: 'relative', paddingBottom: 15 }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white', fontFamily: 'JetBrains Mono, monospace' }}>
+              <Typography variant="h2" sx={{ color: 'common.white' }}>
                 You maintain custody of your funds–no KYC required.
               </Typography>
             </motion.div>

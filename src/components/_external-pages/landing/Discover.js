@@ -143,16 +143,11 @@ export default function Discover() {
               sx={{
                 color: 'common.black',
                 textAlign: 'center',
-                fontWeight: 100,
-                fontFamily: 'JetBrains Mono, monospace'
+                fontWeight: 100
               }}
             >
               Discover{' '}
-              <Typography
-                component="span"
-                variant="h2"
-                sx={{ fontWeight: 900, fontFamily: 'JetBrains Mono, monospace' }}
-              >
+              <Typography component="span" variant="h2" sx={{ fontWeight: 900 }}>
                 Tradable Assets
               </Typography>
             </Typography>

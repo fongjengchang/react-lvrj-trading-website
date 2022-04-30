@@ -58,10 +58,7 @@ export default function Prescale() {
         <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <motion.div variants={varFadeInRight}>
-              <Typography
-                variant="h2"
-                sx={{ color: 'common.white', fontWeight: 100, fontFamily: 'JetBrains Mono, monospace' }}
-              >
+              <Typography variant="h2" sx={{ color: 'common.white' }}>
                 Join Our
                 <Typography component="span" variant="h2" sx={{ fontWeight: 900, color: 'common.white' }}>
                   &nbsp;Presale

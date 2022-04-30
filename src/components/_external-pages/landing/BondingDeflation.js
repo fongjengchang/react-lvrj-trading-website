@@ -28,11 +28,7 @@ export default function BondingDeflation() {
           <ContentStyle>
             <Grid container spacing={2}>
               <Grid item xs={12} md={5}>
-                <Typography
-                  variant="h2"
-                  color="primary.light"
-                  sx={{ fontFamily: 'JetBrains Mono, monospace', marginBottom: 3 }}
-                >
+                <Typography variant="h2" color="primary.light" sx={{ marginBottom: 3 }}>
                   Bonding Curve
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'common.white' }}>
@@ -60,11 +56,7 @@ export default function BondingDeflation() {
                 </MHidden>
               </Grid>
               <Grid item xs={12} md={5}>
-                <Typography
-                  variant="h2"
-                  color="primary.light"
-                  sx={{ fontFamily: 'JetBrains Mono, monospace', marginBottom: 3, marginTop: 5 }}
-                >
+                <Typography variant="h2" color="primary.light" sx={{ marginBottom: 3, marginTop: 5 }}>
                   Deflation
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'common.white', fontWeight: 900 }}>

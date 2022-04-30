@@ -76,7 +76,7 @@ export default function MainNavbar() {
   };
 
   return (
-    <AppBar sx={{ boxShadow: 0, position: 'relative' }}>
+    <AppBar color="default" sx={{ [theme.breakpoints.up('md')]: { position: 'relative', boxShadow: 0 } }}>
       <Toolbar disableGutters sx={{ bgcolor: 'background.default', boxShadow: 'none' }}>
         <Container
           maxWidth="xl"
@@ -140,7 +140,7 @@ export default function MainNavbar() {
                   </IconButton>
                 }
               />
-              <CardContent sx={{ paddingTop: 0 }}>
+              <CardContent sx={{ paddingTop: 0, [theme.breakpoints.down('md')]: { padding: 2 } }}>
                 <CryptoForex />
               </CardContent>
             </Card>

@@ -130,7 +130,7 @@
             "addr": "926E",
             "trades": "15",
             "winrate": "40.4%",
-            "pnl": "-89.09",
+            "pnl": "89.09",
             "img_url": "/static/mock-images/avatars/avatar_8.jpg",
             "name": "TradingShot",
             "expanded": false
@@ -140,7 +140,7 @@
             "addr": "6544",
             "trades": "42",
             "winrate": "100%",
-            "pnl": "-36.73",
+            "pnl": "36.73",
             "img_url": "/static/mock-images/avatars/avatar_9.jpg",
             "name": "Taneesha",
             "expanded": false
@@ -150,7 +150,7 @@
             "addr": "427A",
             "trades": "76",
             "winrate": "0%",
-            "pnl": "-13.21",
+            "pnl": "13.21",
             "img_url": "/static/mock-images/avatars/avatar_10.jpg",
             "name": "Alansantana",
             "expanded": false

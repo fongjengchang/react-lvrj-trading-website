@@ -35,16 +35,11 @@ export default function JoinOurComunity() {
               sx={{
                 color: 'common.black',
                 textAlign: 'center',
-                fontWeight: 100,
-                fontFamily: 'JetBrains Mono, monospace'
+                fontWeight: 100
               }}
             >
               Join Our
-              <Typography
-                component="span"
-                variant="h3"
-                sx={{ fontWeight: 900, fontFamily: 'JetBrains Mono, monospace' }}
-              >
+              <Typography component="span" variant="h3" sx={{ fontWeight: 900 }}>
                 {' '}
                 Community
               </Typography>

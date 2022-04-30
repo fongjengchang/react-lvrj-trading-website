@@ -4,18 +4,7 @@ import { Icon } from '@iconify/react';
 import PropTypes from 'prop-types';
 import { useTheme, withStyles, alpha } from '@material-ui/core/styles';
 
-import {
-  AppBar,
-  Tabs,
-  Tab,
-  Typography,
-  Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from '@material-ui/core';
+import { Tabs, Tab, Typography, Box, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 
 import outlineCurrencyBitcoin from '@iconify/icons-ic/outline-currency-bitcoin';
 import baselineCurrencyExchange from '@iconify/icons-ic/baseline-currency-exchange';
@@ -34,10 +23,12 @@ const TableRowStyles = withStyles((theme) => ({
         paddingRight: theme.spacing(0)
       },
       '&:first-of-type': {
-        boxShadow: 'none'
+        boxShadow: 'none',
+        paddingLeft: theme.spacing(1)
       },
       '&:last-of-type': {
-        boxShadow: 'none'
+        boxShadow: 'none',
+        paddingRight: theme.spacing(1)
       }
     }
   }
@@ -147,19 +138,18 @@ export default function CryptoForex() {
 
   return (
     <div>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="full width tabs example"
-        >
-          <Tab icon={<Icon icon={outlineCurrencyBitcoin} width={30} height={30} />} label="Crypto" {...a11yProps(0)} />
-          <Tab icon={<Icon icon={baselineCurrencyExchange} width={30} height={30} />} label="Forex" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
+      <Tabs
+        value={value}
+        onChange={handleChange}
+        indicatorColor="primary"
+        textColor="primary"
+        variant="fullWidth"
+        aria-label="full width tabs example"
+        sx={{ '& .MuiButtonBase-root:not(:last-child)': { marginRight: 0 } }}
+      >
+        <Tab icon={<Icon icon={outlineCurrencyBitcoin} width={30} height={30} />} label="Crypto" {...a11yProps(0)} />
+        <Tab icon={<Icon icon={baselineCurrencyExchange} width={30} height={30} />} label="Forex" {...a11yProps(1)} />
+      </Tabs>
       <TabPanel value={value} index={0} dir={theme.direction}>
         <CryptoForexTable data={cryptoData} />
       </TabPanel>

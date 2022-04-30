@@ -30,8 +30,7 @@ export default function PoweredBy() {
               sx={{
                 color: 'common.white',
                 textAlign: 'center',
-                fontWeight: 900,
-                fontFamily: 'JetBrains Mono, monospace'
+                fontWeight: 900
               }}
             >
               Powered by
