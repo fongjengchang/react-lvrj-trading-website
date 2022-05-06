@@ -25,7 +25,7 @@ import CloseIcon from '@material-ui/icons/Close';
 // components
 import CryptoForex from '../../components/_external-pages/trading/CryptoForex';
 import ProfileDialog from '../../components/_external-pages/trading/ProfileDialog';
-import Logo from '../../components/Logo';
+// import Logo from '../../components/Logo';
 import { MHidden } from '../../components/@material-extend';
 
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
