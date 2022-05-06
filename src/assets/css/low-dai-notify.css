@@ -74,10 +74,3 @@ min-width: 222px;
   transform: scale(.8);
 }
 }
-
-
-@media only screen and (min-width: 1336px) {
-.wallet-icon {
-  display: none;
-}
-}

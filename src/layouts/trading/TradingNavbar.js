@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, { useState } from 'react';
+import { NavLink as RouterLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
 import '../../assets/css/low-dai-notify.css';
@@ -24,6 +25,7 @@ import CloseIcon from '@material-ui/icons/Close';
 // components
 import CryptoForex from '../../components/_external-pages/trading/CryptoForex';
 import ProfileDialog from '../../components/_external-pages/trading/ProfileDialog';
+import Logo from '../../components/Logo';
 import { MHidden } from '../../components/@material-extend';
 
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
@@ -56,7 +58,7 @@ const SearchBoxStyle = styled(Box)(({ theme }) => ({
   margin: 'auto',
   transform: 'translate(-50%, 60px)',
   [theme.breakpoints.up('md')]: {
-    transform: 'translate(-42.5%, 60px)',
+    transform: 'translate(-50%, 60px)',
     maxWidth: 600
   }
 }));
@@ -82,6 +84,7 @@ export default function MainNavbar() {
   return (
     <AppBar color="default" sx={{ [theme.breakpoints.up('md')]: { position: 'relative', boxShadow: 0 } }}>
       <Toolbar disableGutters sx={{ bgcolor: 'background.default', boxShadow: 'none' }}>
+        <ProfileDialog showProfile={showProfile} onShowProfile={() => setShowProfile(false)} />
         <Container
           maxWidth="xl"
           sx={{
@@ -90,16 +93,15 @@ export default function MainNavbar() {
             justifyContent: 'space-between'
           }}
         >
-          {/* <RouterLink to="/">
-            <Logo />
-          </RouterLink> */}
-          <Box
-            component="img"
-            src="/static/trading/profile.svg"
-            sx={{ width: 50 }}
-            onClick={() => setShowProfile(true)}
-          />
-          <ProfileDialog showProfile={showProfile} onShowProfile={() => setShowProfile(false)} />
+          <RouterLink to="#">
+            {/* <Logo /> */}
+            <Box
+              component="img"
+              src="/static/trading/profile.svg"
+              sx={{ width: 50 }}
+              onClick={() => setShowProfile(true)}
+            />
+          </RouterLink>
           <MHidden width="mdDown">
             <SearchStyle
               size="small"
