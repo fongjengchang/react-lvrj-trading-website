@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, { useState } from 'react';
-import { NavLink as RouterLink } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+
+import '../../assets/css/low-dai-notify.css';
 // material
 import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
 import {
@@ -21,7 +23,7 @@ import CloseIcon from '@material-ui/icons/Close';
 // hooks
 // components
 import CryptoForex from '../../components/_external-pages/trading/CryptoForex';
-import Logo from '../../components/Logo';
+import ProfileDialog from '../../components/_external-pages/trading/ProfileDialog';
 import { MHidden } from '../../components/@material-extend';
 
 const SearchStyle = styled(OutlinedInput)(({ theme }) => ({
@@ -69,8 +71,10 @@ const SearchBackground = styled(Box)(() => ({
 
 export default function MainNavbar() {
   const theme = useTheme();
+  const [showTip, setShowTip] = useState(false);
   const [filterName, setFilerName] = useState('');
   const [isShowSearchBox, setShowSearchBox] = useState(false);
+  const [showProfile, setShowProfile] = useState(false);
   const onFilterName = (e) => {
     setFilerName(e.target.value);
   };
@@ -86,9 +90,16 @@ export default function MainNavbar() {
             justifyContent: 'space-between'
           }}
         >
-          <RouterLink to="/">
+          {/* <RouterLink to="/">
             <Logo />
-          </RouterLink>
+          </RouterLink> */}
+          <Box
+            component="img"
+            src="/static/trading/profile.svg"
+            sx={{ width: 50 }}
+            onClick={() => setShowProfile(true)}
+          />
+          <ProfileDialog showProfile={showProfile} onShowProfile={() => setShowProfile(false)} />
           <MHidden width="mdDown">
             <SearchStyle
               size="small"
@@ -123,7 +134,17 @@ export default function MainNavbar() {
                 }
               />
             </MHidden>
-            <Box component="img" src="/static/trading/nav-wallet.svg" sx={{ width: 35 }} />
+            <div className="wallet-icon" onMouseOver={() => setShowTip(true)} onMouseLeave={() => setShowTip(false)}>
+              <Box component="img" src="/static/trading/wallet.svg" sx={{ width: 50 }} />
+              <div className="low-balance-dot" />
+              {showTip && (
+                <div className="dropdown-push">
+                  <span role="img" aria-label="Fire">
+                    ⚠️ Your DAI wallet balance is below $10
+                  </span>
+                </div>
+              )}
+            </div>
           </Stack>
         </Container>
       </Toolbar>
