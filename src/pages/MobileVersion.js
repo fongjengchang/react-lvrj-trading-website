@@ -51,28 +51,28 @@ TabPanel.propTypes = {
 
 const TradeTab = () => (
   <Box sx={{ marginTop: 1 }}>
-    <Box component="img" src="/static/trading/tab_trade.png" width={30} sx={{ margin: 'auto' }} />
+    <Box component="img" src="/static/trading/trade.png" width={30} sx={{ margin: 'auto' }} />
     <Typography variant="body2">Trade</Typography>
   </Box>
 );
 
 const ActivityTab = () => (
   <Box sx={{ marginTop: 1 }}>
-    <Box component="img" src="/static/trading/tab_activity.png" width={30} sx={{ margin: 'auto' }} />
+    <Box component="img" src="/static/trading/activity.png" width={30} sx={{ margin: 'auto' }} />
     <Typography variant="body2">Activity</Typography>
   </Box>
 );
 
 const LeaderboardTab = () => (
   <Box sx={{ marginTop: 1 }}>
-    <Box component="img" src="/static/trading/tab_leaderboard.png" width={30} sx={{ margin: 'auto' }} />
+    <Box component="img" src="/static/trading/leadboard.png" width={30} sx={{ margin: 'auto' }} />
     <Typography variant="body2">Leaderboard</Typography>
   </Box>
 );
 
 const LiquidityTab = () => (
   <Box sx={{ marginTop: 1 }}>
-    <Box component="img" src="/static/trading/tab_liquidity.png" width={30} sx={{ margin: 'auto' }} />
+    <Box component="img" src="/static/trading/liquidity.png" width={30} sx={{ margin: 'auto' }} />
     <Typography variant="body2">Liquidity</Typography>
   </Box>
 );

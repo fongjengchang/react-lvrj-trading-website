@@ -84,6 +84,7 @@
     "draft-js": "^0.11.7",
     "emoji-mart": "^3.0.0",
     "faker": "^5.5.3",
+    "finnhub": "^1.2.14",
     "firebase": "^8.6.8",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",

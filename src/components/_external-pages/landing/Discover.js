@@ -1,4 +1,8 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable camelcase */
+/* eslint-disable dot-notation */
 import { motion } from 'framer-motion';
+import React from 'react';
 // material
 import { experimentalStyled as styled, useTheme, withStyles } from '@material-ui/core/styles';
 import { Divider, Typography, Stack, Button, Container, Box } from '@material-ui/core';
@@ -11,6 +15,10 @@ import TableRow from '@material-ui/core/TableRow';
 import { varWrapEnter } from '../../animate';
 import { MHidden } from '../../@material-extend';
 
+// const finnhub = require('finnhub');
+
+// const api_key = finnhub.ApiClient.instance.authentications['api_key'];
+// api_key.apiKey = 'c9r0paiad3ibg4fjln3g'; // Replace this
 // ----------------------------------------------------------------------
 
 const TableRowStyle = withStyles((theme) => ({
@@ -132,6 +140,13 @@ const TableContent = () => (
 );
 
 export default function Discover() {
+  // const finnhubClient = new finnhub.DefaultApi();
+  // useEffect(() => {
+  //   // Crypto candles
+  //   finnhubClient.forexSymbols('OANDA', (error, data, response) => {
+  //     console.log(data);
+  //   });
+  // }, []);
   const theme = useTheme();
   return (
     <>
