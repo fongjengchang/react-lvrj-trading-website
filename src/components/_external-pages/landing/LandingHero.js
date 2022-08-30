@@ -61,7 +61,7 @@ export default function LandingHero() {
             <ContentStyle>
               <motion.div variants={varFadeInRight}>
                 <Stack direction="row" spacing={2} alignItems="center">
-                  <div style={{ width: 73, height: 0, border: '2px solid #FE00C0' }} />
+                  <div style={{ width: 73, height: 0, border: '2px solid #FE00C0', borderRadius: 5 }} />
                   <Typography
                     sx={{
                       fontSize: '22px',
@@ -85,7 +85,7 @@ export default function LandingHero() {
                   CRYPTOS, STOCKS, <br />
                   COMMODITIES AND
                   <br />
-                  FOREX WITH LEVERAGE!
+                  FOREX WITH <span className="leverage-text">LEVERAGE!</span>
                 </Typography>
               </motion.div>
 
@@ -107,7 +107,7 @@ export default function LandingHero() {
                     <Typography
                       variant="body2"
                       color="common.white"
-                      sx={{ fontWeight: '100 !important', fontFamily: 'Circular-Loom' }}
+                      sx={{ fontWeight: '100 !important', fontFamily: 'sans-serif' }}
                     >
                       <b>Milestone {index + 1}:</b> First 100,000 users get 20 LVRJ
                     </Typography>
@@ -128,7 +128,11 @@ export default function LandingHero() {
                 alt="hero"
                 src="/static/landing/phone-list-hero.png"
                 variants={varFadeInLeft}
-                sx={{ position: 'absolute', top: 0, left: '-165px' }}
+                sx={{ position: 'absolute', top: 15, left: '-165px' }}
+              />
+              <Image
+                src="/static/landing/astronaut.png"
+                sx={{ position: 'absolute', left: '-380px', bottom: '-70px', zIndex: 10 }}
               />
             </HeroImgContainer>
           </Stack>

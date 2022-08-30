@@ -15,3 +15,11 @@
   background-clip: text;
   text-fill-color: transparent;
 }
+
+.leverage-text {
+  background: linear-gradient(94.95deg, #fe00c0 43.45%, #1dc6eb 100.38%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

@@ -3,8 +3,8 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 // components
 import Page from '../components/Page';
 import {
-  LandingHero
-  // PoweredBy,
+  LandingHero,
+  PoweredBy
   // Discover,
   // Borrowing,
   // GetPaid,
@@ -20,11 +20,11 @@ const RootStyle = styled(Page)({
   height: '100%'
 });
 
-// const ContentStyle = styled('div')(({ theme }) => ({
-//   overflow: 'hidden',
-//   position: 'relative',
-//   backgroundColor: theme.palette.background.default
-// }));
+const ContentStyle = styled('div')(({ theme }) => ({
+  overflow: 'hidden',
+  position: 'relative',
+  backgroundColor: theme.palette.background.default
+}));
 
 // ----------------------------------------------------------------------
 
@@ -32,16 +32,16 @@ export default function LandingPage() {
   return (
     <RootStyle title="Home | LVRJ" id="move_top">
       <LandingHero />
-      {/* <ContentStyle>
+      <ContentStyle>
         <PoweredBy />
-        <Discover />
+        {/* <Discover />
         <Borrowing />
         <GetPaid />
         <SyntheticArchitecture />
         <Prescale />
         <BondingDeflation />
-        <JoinOurComunity />
-      </ContentStyle> */}
+        <JoinOurComunity /> */}
+      </ContentStyle>
     </RootStyle>
   );
 }
