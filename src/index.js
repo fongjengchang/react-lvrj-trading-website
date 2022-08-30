@@ -14,6 +14,7 @@ import reportWebVitals from './reportWebVitals';
 
 // // import styling
 // import './assets/css/common.css';
+import './assets/css/aped-styles.css';
 // ----------------------------------------------------------------------
 
 ReactDOM.render(

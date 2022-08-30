@@ -1,12 +1,12 @@
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 // material
-import { useTheme } from '@material-ui/core/styles';
-import { Box, Button, AppBar, Toolbar, Container } from '@material-ui/core';
+import { Box, Button, AppBar, Toolbar, Container, Stack } from '@material-ui/core';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 // components
 import Logo from '../../components/Logo';
 // import Label from '../../components/Label';
+import Image from '../../components/Image';
 import { MHidden } from '../../components/@material-extend';
 //
 import MenuDesktop from './MenuDesktop';
@@ -15,22 +15,24 @@ import navConfig from './MenuConfig';
 
 // ----------------------------------------------------------------------
 
-// const APP_BAR_MOBILE = 64;
-// const APP_BAR_DESKTOP = 88;
-
-// ----------------------------------------------------------------------
+const socialIcons = [
+  { title: 'medium', src: '/static/socials/social-medium.png' },
+  { title: 'discord', src: '/static/socials/social-discord.png' },
+  { title: 'twitter', src: '/static/socials/social-twitter.png' }
+];
 
 export default function MainNavbar() {
-  const theme = useTheme();
   const isOffset = useOffSetTop(100);
   const { pathname } = useLocation();
   const isHome = pathname === '/';
 
   return (
-    <AppBar sx={{ boxShadow: 0, position: 'relative' }}>
-      <Toolbar sx={{ backgroundColor: theme.palette.grey[900] }}>
+    <AppBar
+      sx={{ boxShadow: 0, position: 'absolute', top: 0, left: 0, width: '100%', backgroundColor: 'rgba(0,0,0,0)' }}
+    >
+      <Toolbar>
         <Container
-          maxWidth="lg"
+          maxWidth="xl"
           sx={{
             display: 'flex',
             alignItems: 'center',
@@ -44,8 +46,13 @@ export default function MainNavbar() {
 
           <MHidden width="mdDown">
             <MenuDesktop isOffset={isOffset} isHome={isHome} navConfig={navConfig} />
-            <Button variant="contained" target="_self" href="#">
-              Join Presale
+            <Stack direction="row" spacing={3}>
+              {socialIcons.map((icon) => (
+                <Image key={icon.title} src={icon.src} />
+              ))}
+            </Stack>
+            <Button className="aped-button" variant="contained" target="_self" href="#" sx={{ marginLeft: 9 }}>
+              JOIN WAITLIST
             </Button>
           </MHidden>
           <MHidden width="mdUp">

@@ -16,3 +16,22 @@
   font-style: normal;
   src: local('CircularStd'), url('CircularStd-Bold.otf') format('opentype');
 }
+
+@font-face {
+  font-family: 'BarlowRegular';
+  src: local('BarlowRegular'), url('Barlow-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'BarlowBold';
+  src: local('BarlowBold'), url('Barlow-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'BarlowExtraBold';
+  src: local('BarlowExtraBold'), url('Barlow-Extra-Bold.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'BarlowExtraBoldItalic';
+  src: local('BarlowExtraBoldItalic'), url('Barlow-Extra-Bold-Italic.ttf') format('opentype');
+}

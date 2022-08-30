@@ -21,8 +21,8 @@ export default function Logo({ sx }) {
       {isHome && (
         <Box
           component="img"
-          src="/static/brand/dark-lvrj-logo.svg"
-          sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 40 } }}
+          src="/static/brand/logo.png"
+          sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72, margin: 2 } }}
         />
       )}
       {!isHome && (
@@ -30,14 +30,14 @@ export default function Logo({ sx }) {
           {isLight ? (
             <Box
               component="img"
-              src="/static/brand/light-lvrj-logo.svg"
-              sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 40 } }}
+              src="/static/brand/logo.png"
+              sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72, margin: 2 } }}
             />
           ) : (
             <Box
               component="img"
-              src="/static/brand/dark-lvrj-logo.svg"
-              sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 40 } }}
+              src="/static/brand/logo.png"
+              sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72, margin: 2 } }}
             />
           )}
         </>

@@ -1,20 +1,19 @@
-import { Icon } from '@iconify/react';
 import { motion } from 'framer-motion';
-import navigation2Outline from '@iconify/icons-eva/navigation-2-outline';
-import trendingUpFill from '@iconify/icons-eva/trending-up-fill';
-import { Link as RouterLink } from 'react-router-dom';
 // material
-import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Button, Container, Typography, Stack } from '@material-ui/core';
 // routes
 //
-import { varFadeInUp, varWrapEnter, varFadeInRight } from '../../animate';
+import { varFadeInLeft, varWrapEnter, varFadeInRight } from '../../animate';
+// components
+import Image from '../../Image';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
   backgroundColor: theme.palette.grey[900],
+  paddingTop: theme.spacing(14),
   [theme.breakpoints.up('md')]: {
     top: 0,
     left: 0,
@@ -34,139 +33,116 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   paddingBottom: theme.spacing(10),
   [theme.breakpoints.up('md')]: {
     margin: 'unset',
+    marginLeft: theme.spacing(5),
     paddingTop: theme.spacing(15),
     paddingBottom: theme.spacing(15),
     textAlign: 'left'
   }
 }));
 
-const HeroImgStyle = styled(motion.img)(({ theme }) => ({
-  width: '100%',
-  margin: 'auto',
-  filter: `drop-shadow(40px 80px 80px rgba(0, 0, 0, 0.48))`,
-  [theme.breakpoints.up('lg')]: {
-    bottom: 0,
-    right: '8%',
-    position: 'absolute',
-    width: 'auto',
-    height: '62vh'
-  }
+const HeroImgContainer = styled(motion.div)(() => ({
+  position: 'relative',
+  right: '-24px',
+  zIndex: 10
+}));
+
+const HeroImgStyle = styled(motion.img)(() => ({
+  width: 'auto'
 }));
 
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
-  const theme = useTheme();
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <Container maxWidth="lg">
-          <ContentStyle>
-            <motion.div variants={varFadeInRight}>
-              <Typography
-                variant="h3"
-                sx={{
-                  border: `4px dotted ${theme.palette.primary.light}`,
-                  width: 'fit-content',
-                  padding: '5px 30px',
-                  color: 'primary.light'
-                }}
-              >
-                Trade
-              </Typography>
-              <Typography
-                variant="h2"
-                sx={{
-                  color: 'common.white',
-                  textAlign: 'left',
-                  fontWeight: 900
-                }}
-              >
-                Cryptos, Stocks, <br />
-                Commodities{' '}
-                <Typography component="span" variant="h2" sx={{ fontWeight: 100 }}>
-                  and
-                </Typography>{' '}
-                <br />
-                Forex{' '}
-                <Typography component="span" variant="h2" sx={{ fontWeight: 100 }}>
-                  with Leverage!
-                </Typography>
-              </Typography>
-            </motion.div>
-
-            <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'left', md: 'flex-start' }}>
-              <Stack
-                component={motion.div}
-                variants={varFadeInRight}
-                direction="row"
-                spacing={1}
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
-              >
-                <img alt="sketch icon" src="/static/home/hero-tick.svg" width={20} height={20} />
-                <Typography variant="body2" color="common.white">
-                  No Sign Up!
-                </Typography>
-              </Stack>
-
-              <Stack
-                component={motion.div}
-                variants={varFadeInRight}
-                direction="row"
-                spacing={1}
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
-              >
-                <img alt="sketch icon" src="/static/home/hero-tick.svg" width={20} height={20} />
-                <Typography variant="body2" color="common.white">
-                  No KYC!
-                </Typography>
-              </Stack>
-            </Stack>
-            <Stack
-              direction="row"
-              spacing={1.5}
-              justifyContent={{ xs: 'left', md: 'flex-start', marginTop: '10px !important' }}
-            >
-              <Stack
-                component={motion.div}
-                variants={varFadeInRight}
-                direction="row"
-                spacing={1}
-                justifyContent={{ xs: 'center', md: 'flex-start' }}
-              >
-                <img alt="sketch icon" src="/static/home/hero-tick.svg" width={20} height={20} />
-                <Typography variant="body2" color="common.white">
-                  Fully Decentralised!
-                </Typography>
-              </Stack>
-            </Stack>
-
-            <Stack direction="row" spacing={1.5} justifyContent={{ xs: 'center', md: 'flex-start' }}>
+        <Container maxWidth="xl">
+          <Stack direction="row" spacing={1} justifyContent="space-between">
+            <ContentStyle>
               <motion.div variants={varFadeInRight}>
-                <Button
-                  size="large"
-                  variant="contained"
-                  component={RouterLink}
-                  to="/"
-                  startIcon={<Icon icon={navigation2Outline} width={20} height={20} />}
+                <Stack direction="row" spacing={2} alignItems="center">
+                  <div style={{ width: 73, height: 0, border: '2px solid #FE00C0' }} />
+                  <Typography
+                    sx={{
+                      fontSize: '22px',
+                      color: '#FE00C0'
+                    }}
+                  >
+                    TRADE
+                  </Typography>
+                </Stack>
+
+                <Typography
+                  sx={{
+                    fontSize: '54px',
+                    lineHeight: '66px',
+                    fontFamily: 'BarlowExtraBoldItalic',
+                    color: 'common.white',
+                    textAlign: 'left',
+                    fontWeight: 900
+                  }}
                 >
-                  Join Precale
+                  CRYPTOS, STOCKS, <br />
+                  COMMODITIES AND
+                  <br />
+                  FOREX WITH LEVERAGE!
+                </Typography>
+              </motion.div>
+
+              <Stack
+                direction="column"
+                spacing={1.5}
+                justifyContent={{ xs: 'left', md: 'flex-start', marginTop: '10px !important' }}
+              >
+                {[...Array(3)].map((_, index) => (
+                  <Stack
+                    key={index}
+                    component={motion.div}
+                    variants={varFadeInRight}
+                    direction="row"
+                    spacing={1}
+                    justifyContent={{ xs: 'center', md: 'flex-start' }}
+                  >
+                    <img alt="sketch icon" src="/static/landing/star.png" width={20} height={20} />
+                    <Typography
+                      variant="body2"
+                      color="common.white"
+                      sx={{ fontWeight: '100 !important', fontFamily: 'Circular-Loom' }}
+                    >
+                      <b>Milestone {index + 1}:</b> First 100,000 users get 20 LVRJ
+                    </Typography>
+                  </Stack>
+                ))}
+              </Stack>
+
+              <motion.div variants={varFadeInRight}>
+                <Button className="aped-button" variant="contained" target="_self" href="#">
+                  JOIN WAITLIST
                 </Button>
               </motion.div>
-              <motion.div variants={varFadeInRight}>
-                <Button
-                  size="large"
-                  variant="outlined"
-                  component={RouterLink}
-                  to="/trading-view"
-                  startIcon={<Icon icon={trendingUpFill} width={20} height={20} />}
-                >
-                  Demo Trade
-                </Button>
-              </motion.div>
-            </Stack>
-          </ContentStyle>
-          <HeroImgStyle alt="hero" src="/static/home/hero-img.png" variants={varFadeInUp} />
+            </ContentStyle>
+
+            <HeroImgContainer>
+              <HeroImgStyle alt="hero" src="/static/landing/desktop-trading-hero.png" variants={varFadeInRight} />
+              <HeroImgStyle
+                alt="hero"
+                src="/static/landing/phone-list-hero.png"
+                variants={varFadeInLeft}
+                sx={{ position: 'absolute', top: 0, left: '-165px' }}
+              />
+            </HeroImgContainer>
+          </Stack>
+
+          <Image
+            src="/static/landing/pink-ellipse-left.png"
+            sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-30%, -25%)' }}
+          />
+
+          <Image src="/static/landing/grey-ellipse-2.png" sx={{ position: 'absolute', right: 0, top: 0, zIndex: 1 }} />
+          <Image
+            src="/static/landing/grey-ellipse-1.png"
+            sx={{ position: 'absolute', right: 100, top: 0, zIndex: 1 }}
+          />
         </Container>
       </RootStyle>
     </>

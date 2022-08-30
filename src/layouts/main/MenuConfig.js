@@ -11,17 +11,22 @@ const ICON_SIZE = {
 
 const menuConfig = [
   {
-    title: 'Home',
+    title: 'HOME',
     path: '/',
     icon: <Icon icon={homeFill} {...ICON_SIZE} />
   },
   {
-    title: 'About',
+    title: 'TOKENOMICS',
     path: '/about',
     icon: <Icon icon={fileFill} {...ICON_SIZE} />
   },
   {
-    title: 'Contact',
+    title: 'ABOUT',
+    path: '/contact',
+    icon: <Icon icon={homeFill} {...ICON_SIZE} />
+  },
+  {
+    title: 'CONTACT',
     path: '/contact',
     icon: <Icon icon={homeFill} {...ICON_SIZE} />
   }

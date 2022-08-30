@@ -189,13 +189,16 @@ function MenuDesktopItem({ item, pathname, isHome, isOpen, isOffset, onOpen, onC
       key={title}
       to={path}
       component={RouterLink}
+      className={isActive && 'active-link'}
       sx={{
+        marginRight: 7.5,
+        fontSize: '18px',
         ...(isHome && { color: 'common.white' }),
-        ...(isOffset && { color: 'text.primary' }),
-        ...(isActive && { color: 'primary.main' })
+        ...(isOffset && { color: 'text.primary' })
       }}
     >
       {title}
+      {isActive && <div style={{ width: 28, height: 0, border: '1px solid #FE00C0', margin: 'auto' }} />}
     </LinkStyle>
   );
 }
