@@ -4,8 +4,8 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import Page from '../components/Page';
 import {
   LandingHero,
-  PoweredBy
-  // Discover,
+  PoweredBy,
+  Discover
   // Borrowing,
   // GetPaid,
   // JoinOurComunity,
@@ -34,8 +34,8 @@ export default function LandingPage() {
       <LandingHero />
       <ContentStyle>
         <PoweredBy />
-        {/* <Discover />
-        <Borrowing />
+        <Discover />
+        {/* <Borrowing />
         <GetPaid />
         <SyntheticArchitecture />
         <Prescale />

@@ -5,14 +5,14 @@ import { motion } from 'framer-motion';
 import React from 'react';
 // material
 import { experimentalStyled as styled, useTheme, withStyles } from '@material-ui/core/styles';
-import { Divider, Typography, Stack, Button, Container, Box } from '@material-ui/core';
+import { Typography, Stack, Button, Container, Box } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 //
-import { varWrapEnter } from '../../animate';
+import { varWrapEnter, varFadeInUp } from '../../animate';
 import { MHidden } from '../../@material-extend';
 
 // const finnhub = require('finnhub');
@@ -24,6 +24,8 @@ import { MHidden } from '../../@material-extend';
 const TableRowStyle = withStyles((theme) => ({
   root: {
     '& .MuiTableCell-root': {
+      color: theme.palette.grey[0],
+      fontFamily: 'BarlowExtraBoldItalic',
       [theme.breakpoints.down('md')]: {
         padding: 0,
         paddingTop: 5,
@@ -31,7 +33,8 @@ const TableRowStyle = withStyles((theme) => ({
       }
     },
     '& .MuiTableCell-head': {
-      backgroundColor: '#F4F6F8',
+      backgroundColor: '#1a1826',
+      borderBottom: `solid 1px ${theme.palette.grey[500_48]}`,
       '&:first-child': {
         [theme.breakpoints.down('md')]: {
           paddingLeft: theme.spacing(1)
@@ -44,17 +47,21 @@ const TableRowStyle = withStyles((theme) => ({
       }
     },
     '& .MuiTableCell-root:first-of-type, .MuiTableCell-root:last-of-type': {
-      boxShadow: 'none'
+      boxShadow: 'none',
+      borderBottomLeftRadius: theme.spacing(0),
+      borderBottomRightRadius: theme.spacing(0)
     }
   }
 }))(TableRow);
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
+  padding: theme.spacing(10, 0),
   position: 'relative',
-  backgroundColor: theme.palette.grey[100]
+  backgroundColor: theme.palette.grey[900]
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
+  textAlign: 'center',
   paddingTop: theme.spacing(5),
   paddingBottom: theme.spacing(5)
 }));
@@ -64,12 +71,11 @@ function createData(markets, lastPrice, change, pChange) {
 }
 
 const rows = [
-  createData('Bitcoin', 1.08064, 1.08064, 0.8),
-  createData('Euro/USD', 1.08064, 1.08064, 0.8),
-  createData('Microsoft', 1.08064, 1.08064, 0.8),
-  createData('Curde Oile Future', 1.08064, 1.08064, 0.8),
-  createData('NATGAS', 1.08064, 1.08064, 0.8),
-  createData('MGM Resorts', 1.08064, 1.08064, 0.8)
+  createData('Bitcoin', 1.08064, 1.08064, 0.4),
+  createData('Solonar', 1.08064, 1.08064, 0.4),
+  createData('Ethereum', 1.08064, 1.08064, 0.4),
+  createData('Binance', 1.08064, 1.08064, 0.4),
+  createData('Cardno', 1.08064, 1.08064, 0.4)
 ];
 
 const discovers = [
@@ -98,13 +104,16 @@ const discovers = [
 // ----------------------------------------------------------------------
 
 const TableContent = () => (
-  <Table aria-label="simple table">
+  <Table
+    aria-label="simple table"
+    sx={{ border: (theme) => `solid 1px ${theme.palette.grey[500_48]}`, borderRadius: '9px', borderCollapse: 'unset' }}
+  >
     <TableHead>
       <TableRowStyle>
-        <TableCell>Markets</TableCell>
-        <TableCell align="center">Last Price</TableCell>
-        <TableCell align="center">Change</TableCell>
-        <TableCell align="center">% Change</TableCell>
+        <TableCell>MARKETS</TableCell>
+        <TableCell align="center">LAST PRICE</TableCell>
+        <TableCell align="center">CHANGE</TableCell>
+        <TableCell align="center">% CHNAGE</TableCell>
       </TableRowStyle>
     </TableHead>
     <TableBody>
@@ -112,14 +121,14 @@ const TableContent = () => (
         <TableRowStyle key={i}>
           <TableCell component="th" scope="row">
             <Stack direction="row" spacing={0.5} alignItems="center">
-              <Box component="img" src={`/static/home/assets-${i + 1}.svg`} />
-              <Typography variant="subtitle1" color="common.black">
+              <Box component="img" src={`/static/landing/assets-${i + 1}.svg`} />
+              <Typography variant="subtitle1" color="common.white">
                 {row.markets}
               </Typography>
             </Stack>
           </TableCell>
           <TableCell align="center">
-            <Typography variant="subtitle1" color="common.black">
+            <Typography variant="subtitle1" color="common.white">
               {row.lastPrice}
             </Typography>
           </TableCell>
@@ -153,19 +162,36 @@ export default function Discover() {
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
         <Container sx={{ [theme.breakpoints.down('md')]: { padding: 0 } }}>
           <ContentStyle>
-            <Typography
-              variant="h2"
-              sx={{
-                color: 'common.black',
-                textAlign: 'center',
-                fontWeight: 100
-              }}
-            >
-              Discover{' '}
-              <Typography component="span" variant="h2" sx={{ fontWeight: 900 }}>
-                Tradable Assets
+            <Box>
+              <Typography
+                variant="h2"
+                sx={{
+                  fontFamily: 'BarlowExtraBoldItalic',
+                  color: 'common.white',
+                  textAlign: 'center'
+                }}
+              >
+                DISCOVER{' '}
+                <Typography
+                  component="span"
+                  variant="h2"
+                  className="gradient-text"
+                  sx={{ fontFamily: 'BarlowExtraBoldItalic' }}
+                >
+                  TRADABLE ASSETS
+                </Typography>
               </Typography>
-            </Typography>
+              <div
+                style={{
+                  width: 160,
+                  height: 0,
+                  border: '1px solid #FE00C0',
+                  borderRadius: 5,
+                  margin: 'auto',
+                  marginTop: 20
+                }}
+              />
+            </Box>
 
             <Box
               component="div"
@@ -186,20 +212,22 @@ export default function Discover() {
                   size="large"
                   sx={{ minWidth: 160 }}
                 >
-                  <Typography variant="h5">
-                    {item.name}
-                    <span style={{ position: 'relative', top: '-5px', left: 2, fontSize: 12 }}>{item.value}</span>{' '}
-                  </Typography>
+                  <Typography variant="h5">{item.name}</Typography>
                 </Button>
               ))}
             </Box>
-            <Stack direction="row" spacing={1} sx={{ overflowX: 'auto' }}>
+            <Stack direction="row" spacing={3} sx={{ overflowX: 'auto' }}>
               <TableContent />
               <MHidden width="mdDown">
-                <Divider orientation="vertical" flexItem />
                 <TableContent />
               </MHidden>
             </Stack>
+
+            <motion.div variants={varFadeInUp}>
+              <Button className="aped-button" variant="contained" target="_self" href="#">
+                VIEW ALL
+              </Button>
+            </motion.div>
           </ContentStyle>
         </Container>
       </RootStyle>

@@ -12,7 +12,7 @@ import Image from '../../Image';
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
-  backgroundColor: 'black',
+  backgroundColor: theme.palette.grey[900],
   paddingTop: theme.spacing(14),
   [theme.breakpoints.up('md')]: {
     top: 0,
@@ -85,7 +85,7 @@ export default function LandingHero() {
                   CRYPTOS, STOCKS, <br />
                   COMMODITIES AND
                   <br />
-                  FOREX WITH <span className="leverage-text">LEVERAGE!</span>
+                  FOREX WITH <span className="gradient-text">LEVERAGE!</span>
                 </Typography>
               </motion.div>
 

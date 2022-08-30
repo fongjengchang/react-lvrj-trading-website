@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 // material
 import { experimentalStyled as styled } from '@material-ui/core/styles';
-import { Box, Typography, Stack } from '@material-ui/core';
+import { Box, Stack } from '@material-ui/core';
 //
 import { varWrapEnter, varFadeInRight } from '../../animate';
 
