@@ -12,7 +12,7 @@ import Image from '../../Image';
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
-  backgroundColor: theme.palette.grey[900],
+  backgroundColor: 'black',
   paddingTop: theme.spacing(14),
   [theme.breakpoints.up('md')]: {
     top: 0,
