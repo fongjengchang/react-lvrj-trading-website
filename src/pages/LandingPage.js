@@ -6,8 +6,8 @@ import {
   LandingHero,
   PoweredBy,
   Discover,
-  Borrowing
-  // GetPaid,
+  Borrowing,
+  GetPaid
   // JoinOurComunity,
   // BondingDeflation,
   // Prescale,
@@ -36,8 +36,8 @@ export default function LandingPage() {
         <PoweredBy />
         <Discover />
         <Borrowing />
-        {/* <GetPaid />
-        <SyntheticArchitecture />
+        <GetPaid />
+        {/* <SyntheticArchitecture />
         <Prescale />
         <BondingDeflation />
         <JoinOurComunity /> */}

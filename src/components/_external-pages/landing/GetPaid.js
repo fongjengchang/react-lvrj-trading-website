@@ -1,115 +1,115 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
-import { Container, Button, Typography, Stack, Box } from '@material-ui/core';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
+import { Container, Stack, Typography, Box } from '@material-ui/core';
 //
-import { varWrapEnter, varFadeInRight, varFadeInUp } from '../../animate';
+import { varWrapEnter } from '../../animate';
+import Image from '../../Image';
 
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
-  backgroundColor: theme.palette.grey[800]
+  width: '100%',
+  textAlign: 'left',
+  padding: theme.spacing(0, 0, 15, 0),
+  backgroundColor: theme.palette.grey[900]
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
-  zIndex: 10,
-  maxWidth: 520,
-  margin: 'auto',
-  textAlign: 'left',
-  position: 'relative',
-  paddingTop: theme.spacing(10),
-  paddingBottom: theme.spacing(10),
-  [theme.breakpoints.up('md')]: {
-    margin: 'unset',
-    textAlign: 'left',
-    paddingTop: theme.spacing(15),
-    paddingBottom: theme.spacing(15)
-  }
+  textAlign: 'center',
+  paddingTop: theme.spacing(5),
+  paddingBottom: theme.spacing(10)
 }));
 
-const DAIImgStyle = styled(motion.img)(({ theme }) => ({
-  top: 0,
-  right: 0,
-  zIndex: 8,
+const BoxStyle = styled(Box)(({ theme }) => ({
   position: 'relative',
-  height: '35vh',
-  width: 'auto',
-  margin: 'auto',
-  filter: `drop-shadow(40px 80px 80px rgba(0, 0, 0, 0.48))`,
-  [theme.breakpoints.up('lg')]: {
-    top: '10%',
-    right: '8%',
-    position: 'absolute',
-    width: 'auto',
-    height: '48vh'
-  }
+  background: 'rgba(255, 255, 255, 0.02)',
+  padding: theme.spacing(10),
+  backdropFilter: 'blur(445px)',
+  color: 'white',
+  border: '3px solid rgba(255, 255, 255, 0.16)',
+  borderRadius: 10
 }));
+
 // ----------------------------------------------------------------------
 
-export default function GetPaid() {
-  const theme = useTheme();
+export default function Borrowing() {
   return (
-    <>
-      <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <Container sx={{ position: 'relative' }}>
-          <ContentStyle>
-            <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white' }}>
-                Trade in
-                <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
-                  &nbsp;DAI
-                </Typography>
-                ,
-                <br />
-                get paid in
-                <Typography component="span" variant="h2" sx={{ color: 'primary.main' }}>
-                  &nbsp;DAI
-                </Typography>
-                ,
-              </Typography>
-            </motion.div>
+    <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
+      <Container sx={{ position: 'relative' }}>
+        <Image src="/static/landing/dai_right.png" sx={{ position: 'absolute', right: -80, top: 50, zIndex: 1 }} />
+        <Image src="/static/landing/dai_left.png" sx={{ position: 'absolute', left: -80, top: 120, zIndex: 1 }} />
+        <ContentStyle>
+          <Box>
+            <Typography
+              variant="h2"
+              sx={{
+                fontFamily: 'BarlowExtraBoldItalic',
+                color: 'common.white',
+                textAlign: 'center'
+              }}
+            >
+              TRADE IN DAI, GET,
+              <br />
+              PAID IN DAI
+            </Typography>
+            <div
+              style={{
+                width: 160,
+                height: 0,
+                border: '1px solid #FE00C0',
+                borderRadius: 5,
+                margin: 'auto',
+                marginTop: 20
+              }}
+            />
+          </Box>
+        </ContentStyle>
 
-            <motion.div variants={varFadeInRight}>
-              <Typography sx={{ color: theme.palette.grey[100] }}>
-                All trading conducted in DAI, directly from your Metamask wallet on the Polygon network.
+        <BoxStyle>
+          <Stack spacing={4} sx={{ marginRight: 40 }}>
+            <Stack direction="row" spacing={3} alignItems="center">
+              <Box
+                sx={{
+                  width: 16,
+                  height: 13,
+                  background: 'linear-gradient(90deg, #FD02BD -9.8%, #5600C4 100%)',
+                  borderRadius: '50%'
+                }}
+              />
+              <Typography variant="body1" sx={{ fontFamily: 'BarlowRegular' }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
               </Typography>
-            </motion.div>
-            <motion.div variants={varFadeInRight}>
-              <Typography sx={{ color: theme.palette.grey[500] }}>
-                All you need is DAI (a fully-decentralized $USD stablecoin ), along with a small amount of MATIC for
-                gas.
-              </Typography>
-            </motion.div>
+            </Stack>
 
-            <motion.div variants={varFadeInRight}>
-              <Button variant="contained">Join Prescale</Button>
-            </motion.div>
-          </ContentStyle>
-          <DAIImgStyle alt="hero" src="/static/home/trade-dai.png" variants={varFadeInUp} />
-        </Container>
-        <motion.div variants={varFadeInUp}>
-          <Box
-            component="img"
-            src="/static/home/trade-graph.svg"
-            sx={{ [theme.breakpoints.up('md')]: { marginTop: '-130px' } }}
-          />
-        </motion.div>
-        <Container sx={{ position: 'relative', paddingBottom: 15 }}>
-          <ContentStyle>
-            <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.white' }}>
-                You maintain custody of your funds–no KYC required.
+            <Stack direction="row" spacing={3} alignItems="center">
+              <Box
+                sx={{
+                  width: 16,
+                  height: 13,
+                  background: 'linear-gradient(90deg, #FD02BD -9.8%, #5600C4 100%)',
+                  borderRadius: '50%'
+                }}
+              />
+              <Typography variant="body1" sx={{ fontFamily: 'BarlowRegular' }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
               </Typography>
-            </motion.div>
-
-            <motion.div variants={varFadeInRight}>
-              <Button variant="contained">Join Prescale</Button>
-            </motion.div>
-          </ContentStyle>
-          <DAIImgStyle alt="hero" src="/static/home/kyc-img.png" variants={varFadeInUp} />
-        </Container>
-      </RootStyle>
-    </>
+            </Stack>
+          </Stack>
+          <Image src="/static/landing/dai-hero.png" sx={{ position: 'absolute', right: 70, top: -70, zIndex: 10 }} />
+        </BoxStyle>
+      </Container>
+      <Image
+        src="/static/landing/borrow-ellipse.png"
+        sx={{ position: 'absolute', left: 0, top: 260, transform: 'translate(-50%, -15%)' }}
+      />
+      <Image
+        src="/static/landing/pink-ellipse-left.png"
+        sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
+      />
+    </RootStyle>
   );
 }

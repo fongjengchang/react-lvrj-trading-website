@@ -106,7 +106,7 @@ export default function Borrowing() {
       </Container>
       <Image
         src="/static/landing/pink-ellipse-left.png"
-        sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)' }}
+        sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)', zIndex: 10 }}
       />
       <Image
         src="/static/landing/borrow-ellipse.png"

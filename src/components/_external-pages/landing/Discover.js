@@ -232,7 +232,7 @@ export default function Discover() {
         >
           {renderSlides()}
         </Slider>
-        <Container>
+        <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <Stack direction="row" spacing={3} sx={{ overflowX: 'auto' }}>
               <TableContent />
@@ -248,15 +248,15 @@ export default function Discover() {
               </Button>
             </motion.div>
           </ContentStyle>
+          <Image
+            src="/static/landing/discover_right.png"
+            sx={{ position: 'absolute', right: 0, bottom: -120, zIndex: 1 }}
+          />
+          <Image
+            src="/static/landing/discover_left.png"
+            sx={{ position: 'absolute', left: 0, bottom: -120, zIndex: 1 }}
+          />
         </Container>
-        <Image
-          src="/static/landing/discover_right.png"
-          sx={{ position: 'absolute', right: 0, bottom: -120, zIndex: 1 }}
-        />
-        <Image
-          src="/static/landing/discover_left.png"
-          sx={{ position: 'absolute', left: 0, bottom: -120, zIndex: 1 }}
-        />
       </RootStyle>
     </>
   );
