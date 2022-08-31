@@ -5,8 +5,8 @@ import Page from '../components/Page';
 import {
   LandingHero,
   PoweredBy,
-  Discover
-  // Borrowing,
+  Discover,
+  Borrowing
   // GetPaid,
   // JoinOurComunity,
   // BondingDeflation,
@@ -35,8 +35,8 @@ export default function LandingPage() {
       <ContentStyle>
         <PoweredBy />
         <Discover />
-        {/* <Borrowing />
-        <GetPaid />
+        <Borrowing />
+        {/* <GetPaid />
         <SyntheticArchitecture />
         <Prescale />
         <BondingDeflation />

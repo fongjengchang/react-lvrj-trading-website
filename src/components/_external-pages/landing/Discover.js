@@ -3,8 +3,10 @@
 /* eslint-disable dot-notation */
 import { motion } from 'framer-motion';
 import React from 'react';
+import Slider from 'react-slick';
+
 // material
-import { experimentalStyled as styled, useTheme, withStyles } from '@material-ui/core/styles';
+import { experimentalStyled as styled, withStyles } from '@material-ui/core/styles';
 import { Typography, Stack, Button, Container, Box } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -15,6 +17,7 @@ import TableRow from '@material-ui/core/TableRow';
 import { varWrapEnter, varFadeInUp } from '../../animate';
 import { MHidden } from '../../@material-extend';
 
+import Image from '../../Image';
 // const finnhub = require('finnhub');
 
 // const api_key = finnhub.ApiClient.instance.authentications['api_key'];
@@ -80,24 +83,28 @@ const rows = [
 
 const discovers = [
   {
-    name: 'All',
-    value: 85
+    name: 'COMMODITIES',
+    value: 1
   },
   {
-    name: 'Crypto',
-    value: 31
+    name: 'FOREX',
+    value: 2
   },
   {
-    name: 'Stocks',
-    value: 21
+    name: 'CRYPTO ',
+    value: 3
   },
   {
-    name: 'Comodities',
-    value: 12
+    name: 'COMMODITIES',
+    value: 4
   },
   {
-    name: 'Forex',
-    value: 42
+    name: 'STOCKS',
+    value: 5
+  },
+  {
+    name: 'NFTS RESORT',
+    value: 6
   }
 ];
 
@@ -149,6 +156,28 @@ const TableContent = () => (
 );
 
 export default function Discover() {
+  const renderSlides = () =>
+    discovers.map((slide, index) => (
+      <div key={index}>
+        <Box sx={{ position: 'relative', margin: 1.5 }}>
+          <Image src={`/static/landing/discover-${index + 1}.jpg`} sx={{ borderRadius: '9px' }} />
+          <Typography
+            variant="h3"
+            className="solid-text"
+            sx={{
+              position: 'absolute',
+              bottom: 20,
+              left: 0,
+              width: '100%',
+              textAlign: 'center',
+              fontFamily: 'BarlowExtraBoldItalic'
+            }}
+          >
+            {slide.name}
+          </Typography>
+        </Box>
+      </div>
+    ));
   // const finnhubClient = new finnhub.DefaultApi();
   // useEffect(() => {
   //   // Crypto candles
@@ -156,11 +185,10 @@ export default function Discover() {
   //     console.log(data);
   //   });
   // }, []);
-  const theme = useTheme();
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <Container sx={{ [theme.breakpoints.down('md')]: { padding: 0 } }}>
+        <Container>
           <ContentStyle>
             <Box>
               <Typography
@@ -192,30 +220,20 @@ export default function Discover() {
                 }}
               />
             </Box>
-
-            <Box
-              component="div"
-              sx={{
-                margin: 'auto !important',
-                marginTop: '40px !important',
-                display: 'flex',
-                justifyContent: 'space-between',
-                overflowX: 'auto',
-                width: '100%',
-                '& > *': { margin: `${theme.spacing(1)} !important` }
-              }}
-            >
-              {discovers.map((item) => (
-                <Button
-                  key={item.name}
-                  variant={item.name === 'All' ? 'contained' : 'outlined'}
-                  size="large"
-                  sx={{ minWidth: 160 }}
-                >
-                  <Typography variant="h5">{item.name}</Typography>
-                </Button>
-              ))}
-            </Box>
+          </ContentStyle>
+        </Container>
+        <Slider
+          dots={false}
+          slidesToShow={5}
+          slidesToScroll={1}
+          autoplay
+          autoplaySpeed={3000}
+          style={{ width: '130%', transform: 'translateX(-11.5%)' }}
+        >
+          {renderSlides()}
+        </Slider>
+        <Container>
+          <ContentStyle>
             <Stack direction="row" spacing={3} sx={{ overflowX: 'auto' }}>
               <TableContent />
               <MHidden width="mdDown">
@@ -223,6 +241,7 @@ export default function Discover() {
               </MHidden>
             </Stack>
 
+            <Box m={4} />
             <motion.div variants={varFadeInUp}>
               <Button className="aped-button" variant="contained" target="_self" href="#">
                 VIEW ALL
@@ -230,6 +249,14 @@ export default function Discover() {
             </motion.div>
           </ContentStyle>
         </Container>
+        <Image
+          src="/static/landing/discover_right.png"
+          sx={{ position: 'absolute', right: 0, bottom: -120, zIndex: 1 }}
+        />
+        <Image
+          src="/static/landing/discover_left.png"
+          sx={{ position: 'absolute', left: 0, bottom: -120, zIndex: 1 }}
+        />
       </RootStyle>
     </>
   );

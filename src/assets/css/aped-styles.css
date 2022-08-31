@@ -23,3 +23,11 @@
   background-clip: text;
   text-fill-color: transparent;
 }
+
+.solid-text {
+  background: linear-gradient(90deg, #fd02bd -9.8%, #5600c4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

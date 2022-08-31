@@ -22,7 +22,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   position: 'relative',
   paddingTop: theme.spacing(10),
   paddingBottom: theme.spacing(10),
-  backgroundColor: theme.palette.primary.dark
+  backgroundColor: theme.palette.grey[900]
 }));
 
 // ----------------------------------------------------------------------
