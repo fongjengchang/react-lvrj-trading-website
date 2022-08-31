@@ -38,8 +38,8 @@ export default function Borrowing() {
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
-        <Image src="/static/landing/dai_right.png" sx={{ position: 'absolute', right: -80, top: 50, zIndex: 1 }} />
-        <Image src="/static/landing/dai_left.png" sx={{ position: 'absolute', left: -80, top: 120, zIndex: 1 }} />
+        <Image src="/static/landing/dai_right.png" sx={{ position: 'absolute', right: -70, top: 50, zIndex: 1 }} />
+        <Image src="/static/landing/dai_left.png" sx={{ position: 'absolute', left: -70, top: 120, zIndex: 1 }} />
         <ContentStyle>
           <Box>
             <Typography
