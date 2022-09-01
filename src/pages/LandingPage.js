@@ -9,10 +9,10 @@ import {
   Borrowing,
   GetPaid,
   YourFunds,
-  RoadMap
+  RoadMap,
+  SyntheticArchitecture
   // JoinOurComunity,
   // BondingDeflation,
-  // SyntheticArchitecture
 } from '../components/_external-pages/landing';
 
 // ----------------------------------------------------------------------
@@ -40,8 +40,8 @@ export default function LandingPage() {
         <GetPaid />
         <YourFunds />
         <RoadMap />
-        {/* <SyntheticArchitecture />
-        <BondingDeflation />
+        <SyntheticArchitecture />
+        {/* <BondingDeflation />
         <JoinOurComunity /> */}
       </ContentStyle>
     </RootStyle>

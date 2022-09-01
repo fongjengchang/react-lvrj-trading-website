@@ -1,65 +1,129 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 // material
-import { withStyles, experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
-import { Container, Typography, Stack, Box } from '@material-ui/core';
+import { experimentalStyled as styled, withStyles } from '@material-ui/core/styles';
+import { Container, Stack, Typography, Box, Grid } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
-import { MHidden } from '../../@material-extend';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //
-import { varWrapEnter, varFadeInRight, varFadeInUp } from '../../animate';
+import { varWrapEnter } from '../../animate';
+import Image from '../../Image';
 
 // ----------------------------------------------------------------------
 
-const AccordianStyle = withStyles(() => ({
-  root: {
-    '& .MuiAccordionSummary-content': {
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }
-  }
-}))(AccordionSummary);
-
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
-  paddingTop: theme.spacing(10),
-  paddingBottom: theme.spacing(10),
-  backgroundColor: theme.palette.grey[100]
+  width: '100%',
+  textAlign: 'left',
+  padding: theme.spacing(15, 0, 15, 0),
+  backgroundColor: theme.palette.grey[900]
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
-  zIndex: 10,
-  maxWidth: 620,
-  margin: 'auto',
-  textAlign: 'left',
-  position: 'relative',
-  paddingTop: theme.spacing(4),
-  paddingBottom: theme.spacing(4),
-  [theme.breakpoints.up('md')]: {
-    margin: 'unset',
-    textAlign: 'left',
-    paddingTop: theme.spacing(5),
-    paddingBottom: theme.spacing(5)
-  }
+  textAlign: 'center',
+  paddingTop: theme.spacing(5),
+  paddingBottom: theme.spacing(7)
 }));
 
-const ArchitectureImgStyle = styled(motion.img)(({ theme }) => ({
-  top: 0,
-  right: 0,
-  zIndex: 8,
-  position: 'relative',
-  height: '20vh',
-  width: 'auto',
-  margin: 'auto',
-  [theme.breakpoints.up('lg')]: {
-    top: '5%',
-    right: '8%',
-    position: 'absolute',
-    width: 'auto',
-    height: '30vh'
+const AccordionStyle = withStyles(() => ({
+  root: {
+    zIndex: 1,
+    margin: 1,
+    background: 'rgba(33, 31, 50, 0.45)',
+    border: '1px solid rgba(255, 255, 255, 0.16)',
+    boxShadow: '0px 4px 19px rgba(0, 0, 0, 0.14)',
+    borderRadius: '10px',
+
+    '&.Mui-expanded': {
+      boxShadow: '0px 4px 19px rgba(0, 0, 0, 0.14)'
+    }
   }
-}));
+}))(Accordion);
+
+// ----------------------------------------------------------------------
+
+export default function SyntheticArchitecture() {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+  return (
+    <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
+      <Container sx={{ position: 'relative' }}>
+        <Image
+          src="/static/landing/text-shine.png"
+          sx={{ position: 'absolute', left: '50%', top: 100, transform: 'translate(-50%, -50%)', zIndex: 1 }}
+        />
+        <ContentStyle>
+          <Box>
+            <Typography
+              variant="h2"
+              sx={{
+                fontFamily: 'BarlowExtraBoldItalic',
+                color: 'common.white',
+                textAlign: 'center'
+              }}
+            >
+              A UNIQUE, FULLY-SYNTHETIC
+              <br />
+              ARCHITECTURE
+            </Typography>
+            <div
+              style={{
+                width: 160,
+                height: 0,
+                border: '1px solid #FE00C0',
+                borderRadius: 5,
+                margin: 'auto',
+                marginTop: 20
+              }}
+            />
+          </Box>
+        </ContentStyle>
+
+        <Grid container spacing={2}>
+          {architectures.map((item, i) => (
+            <Grid item xs={12} md={6} key={i}>
+              <AccordionStyle expanded={expanded === `panel${i + 1}`} onChange={handleChange(`panel${i + 1}`)}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+                  aria-controls="panel1bh-content"
+                  id="panel1bh-header"
+                >
+                  <Stack direction="row" spacing={2}>
+                    <Box component="img" src="/static/landing/tick-square.svg" sx={{ width: 25, height: 'auto' }} />
+                    <Typography
+                      sx={{ color: 'common.white', fontFamily: 'BarlowRegular', fontWeight: 100, fontSize: '18px' }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Stack>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography sx={{ marginLeft: 5, color: 'common.white', fontFamily: 'BarlowRegular' }}>
+                    {item.content}
+                  </Typography>
+                </AccordionDetails>
+              </AccordionStyle>
+            </Grid>
+          ))}
+        </Grid>
+
+        <Image
+          src="/static/landing/borrow-ellipse.png"
+          sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)' }}
+        />
+        <Image
+          src="/static/landing/borrow-ellipse.png"
+          sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
+        />
+      </Container>
+    </RootStyle>
+  );
+}
 
 const architectures = [
   {
@@ -106,71 +170,10 @@ const architectures = [
     title: 'Trade Crypto / Forex / Commodities',
     content:
       'Lrvj uses a real-time custom Chainlink DON that aggregates pricing data from 8 exchanges, while other platforms generate their own prices using an order book. We do not match buying and selling this way–we instead conduct leveraged trades virtually, and simulate PnL with smart contracts.'
+  },
+  {
+    title: 'Superior Capital Efficiency',
+    content:
+      'Lrvj uses a real-time custom Chainlink DON that aggregates pricing data from 8 exchanges, while other platforms generate their own prices using an order book. We do not match buying and selling this way–we instead conduct leveraged trades virtually, and simulate PnL with smart contracts.'
   }
 ];
-
-// ----------------------------------------------------------------------
-
-export default function SyntheticArchitecture() {
-  const theme = useTheme();
-  const [expanded, setExpanded] = useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-  return (
-    <>
-      <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-        <Container sx={{ position: 'relative' }}>
-          <ContentStyle>
-            <motion.div variants={varFadeInRight}>
-              <Typography variant="h2" sx={{ color: 'common.black', fontWeight: 900 }}>
-                A unique, fully- <br /> synthetic architecture
-              </Typography>
-            </motion.div>
-
-            <motion.div variants={varFadeInRight}>
-              <Typography variant="h4" sx={{ fontWeight: 100, color: theme.palette.grey[900] }}>
-                Lvrj is radically different from perpetuals leverage trading you know.
-              </Typography>
-            </motion.div>
-          </ContentStyle>
-          <ArchitectureImgStyle alt="hero" src="/static/home/architecture-img.png" variants={varFadeInUp} />
-          {/* Accordian */}
-          {architectures.map((item, i) => (
-            <Accordion
-              key={i}
-              expanded={expanded === `panel${i + 1}`}
-              onChange={handleChange(`panel${i + 1}`)}
-              sx={{ backgroundColor: 'common.white' }}
-            >
-              <AccordianStyle aria-controls="panel1bh-content" id="panel1bh-header">
-                <Stack direction="row" spacing={2}>
-                  <Box component="img" src="/static/home/architecture-tick.svg" sx={{ width: 25, height: 'auto' }} />
-                  <Typography variant="h5" sx={{ color: 'common.black', fontWeight: 900 }}>
-                    {item.title}
-                  </Typography>
-                </Stack>
-                <MHidden width="mdDown">
-                  <Box
-                    sx={{
-                      padding: theme.spacing(1, 2),
-                      color: 'common.black',
-                      backgroundColor: theme.palette.grey[300],
-                      borderRadius: 3
-                    }}
-                  >
-                    {expanded === `panel${i + 1}` ? 'See Less' : 'Learn More'}
-                  </Box>
-                </MHidden>
-              </AccordianStyle>
-              <AccordionDetails>
-                <Typography sx={{ marginLeft: 5, color: 'common.black' }}>{item.content}</Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </Container>
-      </RootStyle>
-    </>
-  );
-}

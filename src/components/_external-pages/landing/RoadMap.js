@@ -38,6 +38,7 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
   paddingTop: theme.spacing(10),
   paddingBottom: theme.spacing(10),
   borderTop: '2px solid #202020',
+  borderBottom: '2px solid #202020',
   backgroundColor: '#13121D'
 }));
 
