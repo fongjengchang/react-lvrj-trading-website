@@ -4,7 +4,7 @@ import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Button, Container, Typography, Stack } from '@material-ui/core';
 // routes
 //
-import { varFadeInLeft, varWrapEnter, varFadeInRight } from '../../animate';
+import { varWrapEnter, varFadeInRight } from '../../animate';
 // components
 import Image from '../../Image';
 
@@ -123,11 +123,10 @@ export default function LandingHero() {
             </ContentStyle>
 
             <HeroImgContainer>
-              <HeroImgStyle alt="hero" src="/static/landing/desktop-trading-hero.png" variants={varFadeInRight} />
+              <HeroImgStyle alt="hero" src="/static/landing/desktop-trading-hero.png" />
               <HeroImgStyle
                 alt="hero"
                 src="/static/landing/phone-list-hero.png"
-                variants={varFadeInLeft}
                 sx={{ position: 'absolute', top: 15, left: '-165px' }}
               />
               <Image

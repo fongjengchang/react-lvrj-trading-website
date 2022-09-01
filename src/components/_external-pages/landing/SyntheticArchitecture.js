@@ -145,18 +145,18 @@ export default function SyntheticArchitecture() {
             </Box>
 
             <motion.div variants={varFadeInRight}>
-              <Button className="aped-button" variant="contained" target="_self" href="#">
+              <Button className="aped-button" variant="contained" target="_self" href="#" sx={{ zIndex: 3 }}>
                 JOIN WAITLIST
               </Button>
             </motion.div>
           </Stack>
           <Image
             src="/static/landing/pink-ellipse-left.png"
-            sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)' }}
+            sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-60%, -15%)' }}
           />
           <Image
             src="/static/landing/borrow-ellipse.png"
-            sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
+            sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -15%)', zIndex: 1 }}
           />
         </BoxStyle>
       </Container>
