@@ -5,6 +5,5 @@ export { default as Borrowing } from './Borrowing';
 export { default as GetPaid } from './GetPaid';
 export { default as YourFunds } from './YourFunds';
 export { default as RoadMap } from './RoadMap';
-export { default as JoinOurComunity } from './JoinOurComunity';
-export { default as BondingDeflation } from './BondingDeflation';
 export { default as SyntheticArchitecture } from './SyntheticArchitecture';
+export { default as Tokenomics } from './Tokenomics';

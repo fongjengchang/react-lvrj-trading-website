@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 // material
 import { experimentalStyled as styled, withStyles } from '@material-ui/core/styles';
-import { Container, Stack, Typography, Box, Grid } from '@material-ui/core';
+import { Container, Stack, Typography, Box, Grid, Button } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 //
-import { varWrapEnter } from '../../animate';
+import { varWrapEnter, varFadeInRight } from '../../animate';
 import Image from '../../Image';
 
 // ----------------------------------------------------------------------
@@ -25,6 +25,17 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   textAlign: 'center',
   paddingTop: theme.spacing(5),
   paddingBottom: theme.spacing(7)
+}));
+
+const BoxStyle = styled(Box)(({ theme }) => ({
+  position: 'relative',
+  background: 'rgba(255, 255, 255, 0.02)',
+  marginTop: theme.spacing(15),
+  padding: theme.spacing(10),
+  backdropFilter: 'blur(445px)',
+  color: 'white',
+  border: '3px solid rgba(255, 255, 255, 0.16)',
+  borderRadius: 10
 }));
 
 const AccordionStyle = withStyles(() => ({
@@ -120,6 +131,25 @@ export default function SyntheticArchitecture() {
           src="/static/landing/borrow-ellipse.png"
           sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
         />
+
+        <BoxStyle>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems="center" justifyContent="space-between">
+            <Box sx={{ maxWidth: 500 }}>
+              <Typography variant="h2" sx={{ fontFamily: 'BarlowExtraBold', marginBottom: 1 }}>
+                JOIN OUR WAIT LIST
+              </Typography>
+              <Typography variant="body1" sx={{ fontFamily: 'BarlowRegular' }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .
+              </Typography>
+            </Box>
+
+            <motion.div variants={varFadeInRight}>
+              <Button className="aped-button" variant="contained" target="_self" href="#">
+                JOIN WAITLIST
+              </Button>
+            </motion.div>
+          </Stack>
+        </BoxStyle>
       </Container>
     </RootStyle>
   );
