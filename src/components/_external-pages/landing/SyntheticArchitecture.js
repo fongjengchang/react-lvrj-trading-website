@@ -35,7 +35,8 @@ const BoxStyle = styled(Box)(({ theme }) => ({
   backdropFilter: 'blur(445px)',
   color: 'white',
   border: '3px solid rgba(255, 255, 255, 0.16)',
-  borderRadius: 10
+  borderRadius: 10,
+  zIndex: 2
 }));
 
 const AccordionStyle = withStyles(() => ({
@@ -149,6 +150,14 @@ export default function SyntheticArchitecture() {
               </Button>
             </motion.div>
           </Stack>
+          <Image
+            src="/static/landing/pink-ellipse-left.png"
+            sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)' }}
+          />
+          <Image
+            src="/static/landing/borrow-ellipse.png"
+            sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
+          />
         </BoxStyle>
       </Container>
     </RootStyle>
