@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Container, Stack, Typography, Box } from '@material-ui/core';
 //
 import { varWrapEnter } from '../../animate';
@@ -35,10 +35,9 @@ const BoxStyle = styled(Box)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Borrowing() {
-  const theme = useTheme();
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
-      <Container sx={{ [theme.breakpoints.down('md')]: { padding: 0 } }}>
+      <Container sx={{ position: 'relative' }}>
         <ContentStyle>
           <Box>
             <Typography
@@ -103,15 +102,15 @@ export default function Borrowing() {
             </Stack>
           </Stack>
         </BoxStyle>
+        <Image
+          src="/static/landing/pink-ellipse-left.png"
+          sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)', zIndex: 10 }}
+        />
+        <Image
+          src="/static/landing/borrow-ellipse.png"
+          sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
+        />
       </Container>
-      <Image
-        src="/static/landing/pink-ellipse-left.png"
-        sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)', zIndex: 10 }}
-      />
-      <Image
-        src="/static/landing/borrow-ellipse.png"
-        sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
-      />
     </RootStyle>
   );
 }

@@ -19,7 +19,7 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   textAlign: 'center',
   paddingTop: theme.spacing(5),
-  paddingBottom: theme.spacing(10)
+  paddingBottom: theme.spacing(7)
 }));
 
 const BoxStyle = styled(Box)(({ theme }) => ({
@@ -34,12 +34,16 @@ const BoxStyle = styled(Box)(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-export default function GetPaid() {
+export default function YourFunds() {
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
-        <Image src="/static/landing/dai_right.png" sx={{ position: 'absolute', right: -70, top: 50, zIndex: 1 }} />
-        <Image src="/static/landing/dai_left.png" sx={{ position: 'absolute', left: -70, top: 120, zIndex: 1 }} />
+        <Image src="/static/landing/your_funds_1.png" sx={{ position: 'absolute', left: -70, top: 120, zIndex: 1 }} />
+        <Image
+          src="/static/landing/your_funds_2.png"
+          sx={{ position: 'absolute', left: '50%', top: 0, zIndex: 1, transform: 'translate(-50%, -12%)' }}
+        />
+        <Image src="/static/landing/your_funds_3.png" sx={{ position: 'absolute', right: -70, top: 50, zIndex: 1 }} />
         <ContentStyle>
           <Box>
             <Typography
@@ -50,9 +54,9 @@ export default function GetPaid() {
                 textAlign: 'center'
               }}
             >
-              TRADE IN DAI, GET,
+              1000X LEVERAGE, NO BORROWING FEES,
               <br />
-              PAID IN DAI
+              NO OPEN INTEREST
             </Typography>
             <div
               style={{
@@ -68,7 +72,11 @@ export default function GetPaid() {
         </ContentStyle>
 
         <BoxStyle>
-          <Stack spacing={4} sx={{ marginRight: 40 }}>
+          <Image
+            src="/static/landing/yourfunds-hero.png"
+            sx={{ position: 'absolute', left: 70, top: -70, zIndex: 10 }}
+          />
+          <Stack spacing={4} sx={{ marginLeft: 50 }}>
             <Stack direction="row" spacing={3} alignItems="center">
               <Box
                 sx={{
@@ -99,15 +107,22 @@ export default function GetPaid() {
               </Typography>
             </Stack>
           </Stack>
-          <Image src="/static/landing/dai-hero.png" sx={{ position: 'absolute', right: 70, top: -70, zIndex: 10 }} />
         </BoxStyle>
         <Image
+          src="/static/landing/your_funds_4.png"
+          sx={{ position: 'absolute', left: '-78px', bottom: '-210px', zIndex: 1 }}
+        />
+        <Image
+          src="/static/landing/your_funds_5.png"
+          sx={{ position: 'absolute', right: '-95px', bottom: '-230px', zIndex: 1 }}
+        />
+        <Image
           src="/static/landing/borrow-ellipse.png"
-          sx={{ position: 'absolute', left: 0, top: 260, transform: 'translate(-50%, -15%)', zIndex: 10 }}
+          sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)', zIndex: 10 }}
         />
         <Image
           src="/static/landing/pink-ellipse-left.png"
-          sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)', zIndex: 10 }}
+          sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
         />
       </Container>
     </RootStyle>

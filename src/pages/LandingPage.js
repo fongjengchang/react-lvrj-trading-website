@@ -7,10 +7,11 @@ import {
   PoweredBy,
   Discover,
   Borrowing,
-  GetPaid
+  GetPaid,
+  YourFunds,
+  RoadMap
   // JoinOurComunity,
   // BondingDeflation,
-  // Prescale,
   // SyntheticArchitecture
 } from '../components/_external-pages/landing';
 
@@ -37,8 +38,9 @@ export default function LandingPage() {
         <Discover />
         <Borrowing />
         <GetPaid />
+        <YourFunds />
+        <RoadMap />
         {/* <SyntheticArchitecture />
-        <Prescale />
         <BondingDeflation />
         <JoinOurComunity /> */}
       </ContentStyle>
