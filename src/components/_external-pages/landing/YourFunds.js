@@ -38,12 +38,12 @@ export default function YourFunds() {
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
-        <Image src="/static/landing/your_funds_1.png" sx={{ position: 'absolute', left: -70, top: 120, zIndex: 1 }} />
+        <Image src="/static/landing/your_funds_1.png" sx={{ position: 'absolute', left: 20, top: 50, zIndex: 1 }} />
         <Image
           src="/static/landing/your_funds_2.png"
           sx={{ position: 'absolute', left: '50%', top: 0, zIndex: 1, transform: 'translate(-50%, -12%)' }}
         />
-        <Image src="/static/landing/your_funds_3.png" sx={{ position: 'absolute', right: -70, top: 50, zIndex: 1 }} />
+        <Image src="/static/landing/your_funds_3.png" sx={{ position: 'absolute', right: -20, top: -130, zIndex: 1 }} />
         <ContentStyle>
           <Box>
             <Typography
@@ -54,9 +54,9 @@ export default function YourFunds() {
                 textAlign: 'center'
               }}
             >
-              1000X LEVERAGE, NO BORROWING FEES,
+              YOU MAINTAIN CUSTODAY
               <br />
-              NO OPEN INTEREST
+              OF YOUR FUNDS
             </Typography>
             <div
               style={{
@@ -74,7 +74,7 @@ export default function YourFunds() {
         <BoxStyle>
           <Image
             src="/static/landing/yourfunds-hero.png"
-            sx={{ position: 'absolute', left: 70, top: -70, zIndex: 10 }}
+            sx={{ position: 'absolute', left: 70, top: -20, zIndex: 10 }}
           />
           <Stack spacing={4} sx={{ marginLeft: 50 }}>
             <Stack direction="row" spacing={3} alignItems="center">
@@ -115,10 +115,6 @@ export default function YourFunds() {
         <Image
           src="/static/landing/your_funds_5.png"
           sx={{ position: 'absolute', right: '-95px', bottom: '-230px', zIndex: 1 }}
-        />
-        <Image
-          src="/static/landing/borrow-ellipse.png"
-          sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)', zIndex: 10 }}
         />
         <Image
           src="/static/landing/pink-ellipse-left.png"

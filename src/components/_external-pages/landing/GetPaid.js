@@ -50,7 +50,7 @@ export default function GetPaid() {
                 textAlign: 'center'
               }}
             >
-              TRADE IN DAI, GET,
+              TRADE IN DAI, GET
               <br />
               PAID IN DAI
             </Typography>
@@ -103,11 +103,7 @@ export default function GetPaid() {
         </BoxStyle>
         <Image
           src="/static/landing/borrow-ellipse.png"
-          sx={{ position: 'absolute', left: 0, top: 260, transform: 'translate(-50%, -15%)', zIndex: 10 }}
-        />
-        <Image
-          src="/static/landing/pink-ellipse-left.png"
-          sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)', zIndex: 10 }}
+          sx={{ position: 'absolute', left: -150, top: 420, transform: 'translate(-50%, -15%)', zIndex: 10 }}
         />
       </Container>
     </RootStyle>

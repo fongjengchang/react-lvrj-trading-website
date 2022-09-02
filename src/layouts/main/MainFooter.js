@@ -46,7 +46,7 @@ export default function MainFooter() {
                 color="common.white"
                 variant="body2"
                 component={RouterLink}
-                sx={{ display: 'block', textAlign: 'center' }}
+                sx={{ display: 'block', textAlign: 'center', fontSize: '18px' }}
               >
                 {link.name}
               </Link>
