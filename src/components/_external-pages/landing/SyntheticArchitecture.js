@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 // material
-import { experimentalStyled as styled, withStyles } from '@material-ui/core/styles';
+import { experimentalStyled as styled, withStyles, useTheme } from '@material-ui/core/styles';
 import { Container, Stack, Typography, Box, Grid, Button } from '@material-ui/core';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -57,6 +57,7 @@ const AccordionStyle = withStyles(() => ({
 // ----------------------------------------------------------------------
 
 export default function SyntheticArchitecture() {
+  const theme = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -108,7 +109,15 @@ export default function SyntheticArchitecture() {
                   <Stack direction="row" spacing={2}>
                     <Box component="img" src="/static/landing/tick-square.svg" sx={{ width: 25, height: 'auto' }} />
                     <Typography
-                      sx={{ color: 'common.white', fontFamily: 'BarlowRegular', fontWeight: 100, fontSize: '18px' }}
+                      sx={{
+                        color: 'common.white',
+                        fontFamily: 'BarlowRegular',
+                        fontWeight: 100,
+                        fontSize: '16px',
+                        maxWidth: 250,
+                        [theme.breakpoints.up('md')]: { fontSize: '18px', maxWidth: '100%' }
+                      }}
+                      noWrap
                     >
                       {item.title}
                     </Typography>
