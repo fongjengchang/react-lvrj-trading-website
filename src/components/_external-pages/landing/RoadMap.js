@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled, makeStyles } from '@material-ui/core/styles';
-import { Container, Typography, Stack, Box, Paper } from '@material-ui/core';
+import { experimentalStyled as styled, makeStyles, useTheme } from '@material-ui/core/styles';
+import { Container, Typography, Stack, Box, Paper, useMediaQuery } from '@material-ui/core';
 
 import {
   Timeline,
@@ -67,6 +67,8 @@ const TimelineConnectorStyle = styled(TimelineConnector)(() => ({
 
 export default function RoadMap() {
   const classes = useStyles();
+  const theme = useTheme();
+  const upMd = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
@@ -96,16 +98,32 @@ export default function RoadMap() {
             </Box>
           </ContentStyle>
           <motion.div variants={varFadeInUp}>
-            <Timeline position="alternate">
-              <TimelineItem>
+            <Timeline
+              position={upMd ? 'alternate' : 'right'}
+              sx={{ [theme.breakpoints.down('md')]: { padding: 0, width: '115%', marginLeft: -5 } }}
+            >
+              <TimelineItem
+                sx={{
+                  [theme.breakpoints.down('md')]: { marginLeft: 2, '&.MuiTimelineItem-root:before': { flex: 0 } }
+                }}
+              >
                 <TimelineSeparator>
                   <TimelineConnectorStyle sx={{ height: 20 }} />
                 </TimelineSeparator>
                 <TimelineContent />
               </TimelineItem>
               {ROADMAP.map((timeline, index) => (
-                <TimelineItem key={index}>
-                  <TimelineSeparator>
+                <TimelineItem
+                  key={index}
+                  sx={{ [theme.breakpoints.down('md')]: { '&.MuiTimelineItem-root:before': { flex: 0 } } }}
+                >
+                  <TimelineSeparator
+                    sx={{
+                      [theme.breakpoints.down('md')]: {
+                        '&.MuiTimelineSeparator-root': { width: 35, '& .MuiTimelineDot-root': { alignSelf: 'auto' } }
+                      }
+                    }}
+                  >
                     <TimelineDotStyle />
                     <TimelineConnectorStyle />
                   </TimelineSeparator>
@@ -128,8 +146,18 @@ export default function RoadMap() {
                 </TimelineItem>
               ))}
 
-              <TimelineItem>
-                <TimelineSeparator>
+              <TimelineItem
+                sx={{
+                  [theme.breakpoints.down('md')]: { '&.MuiTimelineItem-root:before': { flex: 0 } }
+                }}
+              >
+                <TimelineSeparator
+                  sx={{
+                    [theme.breakpoints.down('md')]: {
+                      '&.MuiTimelineSeparator-root': { width: 35, '& .MuiTimelineDot-root': { alignSelf: 'auto' } }
+                    }
+                  }}
+                >
                   <TimelineDotStyle />
                   <TimelineConnectorStyle sx={{ height: 20 }} />
                 </TimelineSeparator>
