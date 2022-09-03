@@ -44,12 +44,37 @@ export default function YourFunds() {
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
-        <Image src="/static/landing/your_funds_1.png" sx={{ position: 'absolute', left: 20, top: 50, zIndex: 1 }} />
+        <Image
+          src="/static/landing/your_funds_1.png"
+          sx={{
+            position: 'absolute',
+            left: 20,
+            top: 50,
+            zIndex: 1,
+            [theme.breakpoints.down('md')]: { left: -50, top: 170, width: 141, height: 141 }
+          }}
+        />
         <Image
           src="/static/landing/your_funds_2.png"
-          sx={{ position: 'absolute', left: '50%', top: 0, zIndex: 1, transform: 'translate(-50%, -12%)' }}
+          sx={{
+            position: 'absolute',
+            left: '50%',
+            top: 0,
+            zIndex: 1,
+            transform: 'translate(-50%, -12%)',
+            [theme.breakpoints.down('md')]: { left: 50, top: 20, width: 146, height: 146 }
+          }}
         />
-        <Image src="/static/landing/your_funds_3.png" sx={{ position: 'absolute', right: -20, top: -130, zIndex: 1 }} />
+        <Image
+          src="/static/landing/your_funds_3.png"
+          sx={{
+            position: 'absolute',
+            right: -20,
+            top: -130,
+            zIndex: 1,
+            [theme.breakpoints.down('md')]: { right: -20, top: 20, width: 146, height: 146 }
+          }}
+        />
         <ContentStyle>
           <Box>
             <Typography
@@ -130,11 +155,23 @@ export default function YourFunds() {
         </BoxStyle>
         <Image
           src="/static/landing/your_funds_4.png"
-          sx={{ position: 'absolute', left: '-78px', bottom: '-210px', zIndex: 1 }}
+          sx={{
+            position: 'absolute',
+            left: '-78px',
+            bottom: '-210px',
+            zIndex: 1,
+            [theme.breakpoints.down('md')]: { left: -20, bottom: -140, width: 89, height: 89 }
+          }}
         />
         <Image
           src="/static/landing/your_funds_5.png"
-          sx={{ position: 'absolute', right: '-95px', bottom: '-230px', zIndex: 1 }}
+          sx={{
+            position: 'absolute',
+            right: '-95px',
+            bottom: '-230px',
+            zIndex: 1,
+            [theme.breakpoints.down('md')]: { right: -20, bottom: -180, width: 123, height: 155 }
+          }}
         />
         <Image
           src="/static/landing/pink-ellipse-left.png"
