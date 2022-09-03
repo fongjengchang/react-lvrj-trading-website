@@ -32,8 +32,7 @@ const BoxStyle = styled(Box)(({ theme }) => ({
   border: '3px solid rgba(255, 255, 255, 0.16)',
   borderRadius: 10,
   [theme.breakpoints.up('md')]: {
-    padding: theme.spacing(10),
-    paddingTop: theme.spacing(10)
+    padding: theme.spacing(10)
   }
 }));
 

@@ -27,16 +27,31 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   paddingBottom: theme.spacing(7)
 }));
 
+// const BoxStyle = styled(Box)(({ theme }) => ({
+//   position: 'relative',
+//   background: 'rgba(255, 255, 255, 0.02)',
+//   marginTop: theme.spacing(15),
+//   padding: theme.spacing(10),
+//   backdropFilter: 'blur(445px)',
+//   color: 'white',
+//   border: '3px solid rgba(255, 255, 255, 0.16)',
+//   borderRadius: 10,
+//   zIndex: 2
+// }));
+
 const BoxStyle = styled(Box)(({ theme }) => ({
   position: 'relative',
   background: 'rgba(255, 255, 255, 0.02)',
   marginTop: theme.spacing(15),
-  padding: theme.spacing(10),
+  padding: theme.spacing(5),
   backdropFilter: 'blur(445px)',
   color: 'white',
   border: '3px solid rgba(255, 255, 255, 0.16)',
   borderRadius: 10,
-  zIndex: 2
+  zIndex: 2,
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(10)
+  }
 }));
 
 const AccordionStyle = withStyles(() => ({
@@ -145,10 +160,23 @@ export default function SyntheticArchitecture() {
         <BoxStyle>
           <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems="center" justifyContent="space-between">
             <Box sx={{ maxWidth: 500 }}>
-              <Typography variant="h2" sx={{ fontFamily: 'BarlowExtraBold', marginBottom: 1 }}>
-                JOIN OUR WAIT LIST
+              <Typography
+                variant="h2"
+                sx={{
+                  fontFamily: 'BarlowExtraBoldItalic',
+                  marginBottom: 1,
+                  [theme.breakpoints.down('md')]: { fontSize: '28px', textAlign: 'center' }
+                }}
+              >
+                JOIN OUR <span className="gradient-text">WAIT LIST</span>
               </Typography>
-              <Typography variant="body1" sx={{ fontFamily: 'BarlowRegular' }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontFamily: 'BarlowRegular',
+                  [theme.breakpoints.down('md')]: { fontSize: '14px', textAlign: 'center' }
+                }}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .
               </Typography>
             </Box>
