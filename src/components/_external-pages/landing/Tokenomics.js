@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled } from '@material-ui/core/styles';
+import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
 import { Container, Stack, Typography, Box, Button } from '@material-ui/core';
 //
 import { varWrapEnter } from '../../animate';
@@ -25,18 +25,21 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
 const BoxStyle = styled(Box)(({ theme }) => ({
   position: 'relative',
   background: 'rgba(255, 255, 255, 0.02)',
-  padding: theme.spacing(10),
+  padding: theme.spacing(5),
   backdropFilter: 'blur(445px)',
   color: 'white',
   border: '3px solid rgba(255, 255, 255, 0.16)',
   borderRadius: 10,
-  textAlign: 'center',
-  zIndex: 1
+  zIndex: 2,
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(10)
+  }
 }));
 
 // ----------------------------------------------------------------------
 
 export default function Tokenomics() {
+  const theme = useTheme();
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
@@ -72,7 +75,13 @@ export default function Tokenomics() {
         <BoxStyle>
           <Typography
             variant="body1"
-            sx={{ fontFamily: 'BarlowRegular', maxWidth: 420, margin: 'auto', marginBottom: 4 }}
+            sx={{
+              fontFamily: 'BarlowRegular',
+              maxWidth: 420,
+              margin: 'auto',
+              marginBottom: 4,
+              [theme.breakpoints.down('md')]: { textAlign: 'center' }
+            }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .
           </Typography>

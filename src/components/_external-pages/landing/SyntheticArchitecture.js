@@ -27,18 +27,6 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   paddingBottom: theme.spacing(7)
 }));
 
-// const BoxStyle = styled(Box)(({ theme }) => ({
-//   position: 'relative',
-//   background: 'rgba(255, 255, 255, 0.02)',
-//   marginTop: theme.spacing(15),
-//   padding: theme.spacing(10),
-//   backdropFilter: 'blur(445px)',
-//   color: 'white',
-//   border: '3px solid rgba(255, 255, 255, 0.16)',
-//   borderRadius: 10,
-//   zIndex: 2
-// }));
-
 const BoxStyle = styled(Box)(({ theme }) => ({
   position: 'relative',
   background: 'rgba(255, 255, 255, 0.02)',
