@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled } from '@material-ui/core/styles';
+import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
 import { Container, Stack, Typography, Box } from '@material-ui/core';
 //
 import { varWrapEnter } from '../../animate';
@@ -25,16 +25,22 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
 const BoxStyle = styled(Box)(({ theme }) => ({
   position: 'relative',
   background: 'rgba(255, 255, 255, 0.02)',
-  padding: theme.spacing(10),
+  padding: theme.spacing(2),
+  paddingTop: theme.spacing(25),
   backdropFilter: 'blur(445px)',
   color: 'white',
   border: '3px solid rgba(255, 255, 255, 0.16)',
-  borderRadius: 10
+  borderRadius: 10,
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(10),
+    paddingTop: theme.spacing(10)
+  }
 }));
 
 // ----------------------------------------------------------------------
 
 export default function Borrowing() {
+  const theme = useTheme();
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
@@ -67,11 +73,18 @@ export default function Borrowing() {
 
         <BoxStyle>
           <Image
-            src="/static/landing/discover-heor.png"
-            sx={{ position: 'absolute', left: 70, top: -70, zIndex: 10 }}
+            src="/static/landing/discover-hero.png"
+            sx={{
+              position: 'absolute',
+              left: '50%',
+              top: -70,
+              zIndex: 10,
+              transform: 'translate(-50%, 0)',
+              [theme.breakpoints.up('md')]: { left: 70, top: -70, transform: 'translate(0, 0)' }
+            }}
           />
-          <Stack spacing={4} sx={{ marginLeft: 40 }}>
-            <Stack direction="row" spacing={3} alignItems="center">
+          <Stack spacing={4} sx={{ marginLeft: 0, [theme.breakpoints.up('md')]: { marginLeft: 40 } }}>
+            <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems="center">
               <Box
                 sx={{
                   width: 16,
@@ -80,13 +93,20 @@ export default function Borrowing() {
                   borderRadius: '50%'
                 }}
               />
-              <Typography variant="body1" sx={{ fontFamily: 'BarlowRegular' }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontFamily: 'BarlowRegular',
+                  textAlign: 'center',
+                  [theme.breakpoints.up('md')]: { textAlign: 'left' }
+                }}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.
               </Typography>
             </Stack>
 
-            <Stack direction="row" spacing={3} alignItems="center">
+            <Stack direction={{ xs: 'column', md: 'row' }} spacing={3} alignItems="center">
               <Box
                 sx={{
                   width: 16,
@@ -95,7 +115,14 @@ export default function Borrowing() {
                   borderRadius: '50%'
                 }}
               />
-              <Typography variant="body1" sx={{ fontFamily: 'BarlowRegular' }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontFamily: 'BarlowRegular',
+                  textAlign: 'center',
+                  [theme.breakpoints.up('md')]: { textAlign: 'left' }
+                }}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua.
               </Typography>

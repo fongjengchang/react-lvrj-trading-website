@@ -14,8 +14,17 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
 }));
 
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
-  paddingTop: theme.spacing(10),
-  paddingBottom: theme.spacing(10)
+  padding: theme.spacing(5, 0),
+  [theme.breakpoints.up('md')]: {
+    padding: theme.spacing(10, 0)
+  }
+}));
+
+const ImageStyle = styled(Box)(({ theme }) => ({
+  height: 20,
+  [theme.breakpoints.up('md')]: {
+    height: 40
+  }
 }));
 
 // ----------------------------------------------------------------------
@@ -27,12 +36,12 @@ export default function PoweredBy() {
         <ContentStyle>
           <motion.div variants={varFadeInRight}>
             <Stack direction="row" spacing={5} justifyContent="space-around" alignItems="center">
-              <Box component="img" src="/static/home/chainlink.svg" sx={{ height: 40 }} />
-              <Box component="img" src="/static/home/polygon.png" sx={{ height: 30 }} />
-              <Box component="img" src="/static/home/chainlink.svg" sx={{ height: 40 }} />
-              <Box component="img" src="/static/home/polygon.png" sx={{ height: 30 }} />
-              <Box component="img" src="/static/home/chainlink.svg" sx={{ height: 40 }} />
-              <Box component="img" src="/static/home/polygon.png" sx={{ height: 30 }} />
+              <ImageStyle component="img" src="/static/home/chainlink.svg" />
+              <ImageStyle component="img" src="/static/home/polygon.png" />
+              <ImageStyle component="img" src="/static/home/chainlink.svg" />
+              <ImageStyle component="img" src="/static/home/polygon.png" />
+              <ImageStyle component="img" src="/static/home/chainlink.svg" />
+              <ImageStyle component="img" src="/static/home/polygon.png" />
             </Stack>
           </motion.div>
         </ContentStyle>

@@ -1,5 +1,6 @@
 import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 // material
+import { useTheme } from '@material-ui/core/styles';
 import { Box, Button, AppBar, Toolbar, Container, Stack } from '@material-ui/core';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
@@ -22,6 +23,7 @@ const socialIcons = [
 ];
 
 export default function MainNavbar() {
+  const theme = useTheme();
   const isOffset = useOffSetTop(100);
   const { pathname } = useLocation();
   const isHome = pathname === '/';
@@ -30,13 +32,14 @@ export default function MainNavbar() {
     <AppBar
       sx={{ boxShadow: 0, position: 'absolute', top: 0, left: 0, width: '100%', backgroundColor: 'rgba(0,0,0,0)' }}
     >
-      <Toolbar>
+      <Toolbar sx={{ [theme.breakpoints.down('md')]: { paddingLeft: 0, paddingRight: 0 } }}>
         <Container
           maxWidth="xl"
           sx={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            [theme.breakpoints.down('md')]: { paddingLeft: 0, paddingRight: 0 }
           }}
         >
           <RouterLink to="/">

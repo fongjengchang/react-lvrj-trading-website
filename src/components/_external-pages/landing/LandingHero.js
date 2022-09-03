@@ -1,24 +1,25 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled } from '@material-ui/core/styles';
-import { Button, Container, Typography, Stack } from '@material-ui/core';
+import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { Button, Container, Typography, Stack, Box } from '@material-ui/core';
 // routes
 //
 import { varWrapEnter, varFadeInRight } from '../../animate';
 // components
 import Image from '../../Image';
-
+import { MHidden } from '../../@material-extend';
 // ----------------------------------------------------------------------
 
 const RootStyle = styled(motion.div)(({ theme }) => ({
   position: 'relative',
+  paddingTop: theme.spacing(7),
   backgroundColor: theme.palette.grey[900],
-  paddingTop: theme.spacing(14),
   [theme.breakpoints.up('md')]: {
     top: 0,
     left: 0,
     width: '100%',
     display: 'flex',
+    paddingTop: theme.spacing(14),
     alignItems: 'center'
   }
 }));
@@ -40,10 +41,13 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ them
   }
 }));
 
-const HeroImgContainer = styled(motion.div)(() => ({
+const HeroImgContainer = styled(motion.div)(({ theme }) => ({
   position: 'relative',
   right: '-24px',
-  zIndex: 10
+  zIndex: 10,
+  [theme.breakpoints.down('md')]: {
+    display: 'none'
+  }
 }));
 
 const HeroImgStyle = styled(motion.img)(() => ({
@@ -53,19 +57,45 @@ const HeroImgStyle = styled(motion.img)(() => ({
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
+  const theme = useTheme();
   return (
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
         <Container maxWidth="xl">
+          <MHidden width="mdUp">
+            <Image
+              src="/static/landing/astronaut.png"
+              sx={{
+                position: 'absolute',
+                left: '50%',
+                top: '113px',
+                transform: 'translate(-50%, -50%)',
+                zIndex: 10,
+                width: 55,
+                height: 49
+              }}
+            />
+          </MHidden>
+
           <Stack direction="row" spacing={1} justifyContent="space-between">
             <ContentStyle>
               <motion.div variants={varFadeInRight}>
-                <Stack direction="row" spacing={2} alignItems="center">
-                  <div style={{ width: 73, height: 0, border: '2px solid #FE00C0', borderRadius: 5 }} />
+                <Stack
+                  direction="row"
+                  spacing={2}
+                  alignItems="center"
+                  justifyContent={{ xs: 'center', md: 'flex-start' }}
+                >
+                  <MHidden width="mdDown">
+                    <Box sx={{ width: 73, height: 0, border: '2px solid #FE00C0', borderRadius: 5 }} />
+                  </MHidden>
                   <Typography
                     sx={{
-                      fontSize: '22px',
-                      color: '#FE00C0'
+                      fontSize: '16px',
+                      color: '#FE00C0',
+                      [theme.breakpoints.up('md')]: {
+                        fontSize: '22px'
+                      }
                     }}
                   >
                     TRADE
@@ -74,12 +104,17 @@ export default function LandingHero() {
 
                 <Typography
                   sx={{
-                    fontSize: '54px',
-                    lineHeight: '66px',
+                    textAlign: 'center',
+                    fontSize: '32px',
+                    lineHeight: '42px',
                     fontFamily: 'BarlowExtraBoldItalic',
                     color: 'common.white',
-                    textAlign: 'left',
-                    fontWeight: 900
+                    fontWeight: 900,
+                    [theme.breakpoints.up('md')]: {
+                      textAlign: 'left',
+                      lineHeight: '66px',
+                      fontSize: '54px'
+                    }
                   }}
                 >
                   CRYPTOS, STOCKS, <br />
@@ -120,6 +155,10 @@ export default function LandingHero() {
                   JOIN WAITLIST
                 </Button>
               </motion.div>
+
+              <MHidden width="mdUp">
+                <HeroImgStyle alt="hero" src="/static/landing/landing-mobile-hero.png" />
+              </MHidden>
             </ContentStyle>
 
             <HeroImgContainer>
@@ -127,7 +166,11 @@ export default function LandingHero() {
               <HeroImgStyle
                 alt="hero"
                 src="/static/landing/phone-list-hero.png"
-                sx={{ position: 'absolute', top: 15, left: '-165px' }}
+                sx={{
+                  position: 'absolute',
+                  top: 15,
+                  left: '-165px'
+                }}
               />
               <Image
                 src="/static/landing/astronaut.png"

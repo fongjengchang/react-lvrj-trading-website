@@ -6,8 +6,8 @@ import React from 'react';
 import Slider from 'react-slick';
 
 // material
-import { experimentalStyled as styled, withStyles } from '@material-ui/core/styles';
-import { Typography, Stack, Button, Container, Box } from '@material-ui/core';
+import { experimentalStyled as styled, withStyles, useTheme } from '@material-ui/core/styles';
+import { Typography, Stack, Button, Container, Box, useMediaQuery } from '@material-ui/core';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -66,7 +66,8 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
 const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(({ theme }) => ({
   textAlign: 'center',
   paddingTop: theme.spacing(5),
-  paddingBottom: theme.spacing(5)
+  paddingBottom: theme.spacing(5),
+  zIndex: 10
 }));
 
 function createData(markets, lastPrice, change, pChange) {
@@ -126,7 +127,7 @@ const TableContent = () => (
     <TableBody>
       {rows.map((row, i) => (
         <TableRowStyle key={i}>
-          <TableCell component="th" scope="row">
+          <TableCell component="th" scope="row" sx={{ paddingLeft: '10px !important' }}>
             <Stack direction="row" spacing={0.5} alignItems="center">
               <Box component="img" src={`/static/landing/assets-${i + 1}.svg`} />
               <Typography variant="subtitle1" color="common.white">
@@ -156,21 +157,29 @@ const TableContent = () => (
 );
 
 export default function Discover() {
+  const theme = useTheme();
+
+  const upMd = useMediaQuery(theme.breakpoints.up('md'));
+
   const renderSlides = () =>
     discovers.map((slide, index) => (
       <div key={index}>
-        <Box sx={{ position: 'relative', margin: 1.5 }}>
+        <Box sx={{ position: 'relative', margin: 1, [theme.breakpoints.up('md')]: { margin: 1.5 } }}>
           <Image src={`/static/landing/discover-${index + 1}.jpg`} sx={{ borderRadius: '9px' }} />
           <Typography
-            variant="h3"
             className="solid-text"
             sx={{
               position: 'absolute',
-              bottom: 20,
+              bottom: 10,
               left: 0,
               width: '100%',
               textAlign: 'center',
-              fontFamily: 'BarlowExtraBoldItalic'
+              fontSize: '16px',
+              fontFamily: 'BarlowBlackItalic',
+              [theme.breakpoints.up('md')]: {
+                fontSize: '30px',
+                bottom: 20
+              }
             }}
           >
             {slide.name}
@@ -196,7 +205,10 @@ export default function Discover() {
                 sx={{
                   fontFamily: 'BarlowExtraBoldItalic',
                   color: 'common.white',
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  [theme.breakpoints.down('md')]: {
+                    fontSize: '28px'
+                  }
                 }}
               >
                 DISCOVER{' '}
@@ -204,7 +216,12 @@ export default function Discover() {
                   component="span"
                   variant="h2"
                   className="gradient-text"
-                  sx={{ fontFamily: 'BarlowExtraBoldItalic' }}
+                  sx={{
+                    fontFamily: 'BarlowExtraBoldItalic',
+                    [theme.breakpoints.down('md')]: {
+                      fontSize: '26px'
+                    }
+                  }}
                 >
                   TRADABLE ASSETS
                 </Typography>
@@ -222,16 +239,35 @@ export default function Discover() {
             </Box>
           </ContentStyle>
         </Container>
-        <Slider
-          dots={false}
-          slidesToShow={5}
-          slidesToScroll={1}
-          autoplay
-          autoplaySpeed={3000}
-          style={{ width: '130%', transform: 'translateX(-11.5%)' }}
+        <Box
+          sx={{
+            width: '160%',
+            transform: 'translateX(-18.5%)',
+            [theme.breakpoints.up('md')]: {
+              width: '130%',
+              transform: 'translateX(-11.5%)'
+            }
+          }}
         >
-          {renderSlides()}
-        </Slider>
+          <Slider
+            dots={false}
+            slidesToShow={upMd ? 5 : 3}
+            slidesToScroll={1}
+            autoplay
+            autoplaySpeed={3000}
+            // style={{
+            //   width: '160%',
+            //   transform: 'translateX(-11.5%)',
+            //   [theme.breakpoints.up('md')]: {
+            //     width: '130%',
+            //     transform: 'translateX(-11.5%)'
+            //   }
+            // }}
+          >
+            {renderSlides()}
+          </Slider>
+        </Box>
+
         <Container sx={{ position: 'relative' }}>
           <ContentStyle>
             <Stack direction="row" spacing={3} sx={{ overflowX: 'auto' }}>
@@ -250,11 +286,23 @@ export default function Discover() {
           </ContentStyle>
           <Image
             src="/static/landing/discover_right.png"
-            sx={{ position: 'absolute', right: 0, bottom: -120, zIndex: 1 }}
+            sx={{
+              position: 'absolute',
+              right: 0,
+              bottom: -120,
+              zIndex: 1,
+              [theme.breakpoints.down('md')]: { width: 136, height: 111, right: -40 }
+            }}
           />
           <Image
             src="/static/landing/discover_left.png"
-            sx={{ position: 'absolute', left: 0, bottom: -120, zIndex: 1 }}
+            sx={{
+              position: 'absolute',
+              left: 0,
+              bottom: -120,
+              zIndex: 1,
+              [theme.breakpoints.down('md')]: { width: 136, height: 111, left: -40 }
+            }}
           />
         </Container>
       </RootStyle>

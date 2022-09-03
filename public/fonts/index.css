@@ -35,3 +35,8 @@
   font-family: 'BarlowExtraBoldItalic';
   src: local('BarlowExtraBoldItalic'), url('Barlow-Extra-Bold-Italic.ttf') format('opentype');
 }
+
+@font-face {
+  font-family: 'BarlowBlackItalic';
+  src: local('BarlowBlackItalic'), url('Barlow-BlackItalic.otf') format('opentype');
+}

@@ -22,7 +22,7 @@ export default function Logo({ sx }) {
         <Box
           component="img"
           src="/static/brand/logo.png"
-          sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72, margin: 2 } }}
+          sx={{ height: 64, width: 52, margin: 2, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72 } }}
         />
       )}
       {!isHome && (
@@ -31,13 +31,13 @@ export default function Logo({ sx }) {
             <Box
               component="img"
               src="/static/brand/logo.png"
-              sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72, margin: 2 } }}
+              sx={{ height: 64, width: 52, margin: 2, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72 } }}
             />
           ) : (
             <Box
               component="img"
               src="/static/brand/logo.png"
-              sx={{ height: 30, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72, margin: 2 } }}
+              sx={{ height: 64, width: 52, margin: 2, ...sx, [theme.breakpoints.up('md')]: { height: 89, width: 72 } }}
             />
           )}
         </>
