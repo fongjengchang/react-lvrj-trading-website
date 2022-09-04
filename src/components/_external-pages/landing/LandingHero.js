@@ -127,7 +127,11 @@ export default function LandingHero() {
                     <Typography
                       variant="body2"
                       color="common.white"
-                      sx={{ fontWeight: '100 !important', fontFamily: 'sans-serif' }}
+                      sx={{
+                        fontWeight: '100 !important',
+                        fontFamily: 'sans-serif',
+                        [theme.breakpoints.down('md')]: { fontSize: '12px' }
+                      }}
                     >
                       <b>Milestone {index + 1}:</b> First 100,000 users get 20 LVRJ
                     </Typography>

@@ -43,8 +43,26 @@ export default function GetPaid() {
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
-        <Image src="/static/landing/dai_right.png" sx={{ position: 'absolute', right: -70, top: 50, zIndex: 1 }} />
-        <Image src="/static/landing/dai_left.png" sx={{ position: 'absolute', left: -70, top: 120, zIndex: 1 }} />
+        <Image
+          src="/static/landing/dai_right.png"
+          sx={{
+            position: 'absolute',
+            right: -70,
+            top: 50,
+            zIndex: 1,
+            [theme.breakpoints.down('md')]: { right: -50, top: 50, width: 174, height: 174 }
+          }}
+        />
+        <Image
+          src="/static/landing/dai_left.png"
+          sx={{
+            position: 'absolute',
+            left: -70,
+            top: 120,
+            zIndex: 1,
+            [theme.breakpoints.down('md')]: { left: 0, top: 20, width: 105, height: 169 }
+          }}
+        />
         <ContentStyle>
           <Box>
             <Typography
@@ -125,7 +143,14 @@ export default function GetPaid() {
         </BoxStyle>
         <Image
           src="/static/landing/borrow-ellipse.png"
-          sx={{ position: 'absolute', left: -150, top: 560, transform: 'translate(-50%, -15%)', zIndex: 10 }}
+          sx={{
+            position: 'absolute',
+            left: -150,
+            top: 560,
+            transform: 'translate(-50%, -15%)',
+            zIndex: 10,
+            [theme.breakpoints.down('md')]: { left: 50, top: 60, width: 900 }
+          }}
         />
       </Container>
     </RootStyle>

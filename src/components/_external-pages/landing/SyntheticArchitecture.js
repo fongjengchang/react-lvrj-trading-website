@@ -117,7 +117,7 @@ export default function SyntheticArchitecture() {
                         fontFamily: 'BarlowRegular',
                         fontWeight: 100,
                         fontSize: '16px',
-                        maxWidth: 250,
+                        maxWidth: 220,
                         [theme.breakpoints.up('md')]: { fontSize: '18px', maxWidth: '100%' }
                       }}
                       noWrap
@@ -138,11 +138,23 @@ export default function SyntheticArchitecture() {
 
         <Image
           src="/static/landing/borrow-ellipse.png"
-          sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-50%, -15%)' }}
+          sx={{
+            position: 'absolute',
+            left: 0,
+            top: 560,
+            transform: 'translate(-50%, -15%)',
+            [theme.breakpoints.up('md')]: { left: 0, top: 60 }
+          }}
         />
         <Image
           src="/static/landing/borrow-ellipse.png"
-          sx={{ position: 'absolute', right: 0, top: 60, transform: 'translate(50%, -25%)' }}
+          sx={{
+            position: 'absolute',
+            right: 0,
+            top: 360,
+            transform: 'translate(50%, -25%)',
+            [theme.breakpoints.up('md')]: { right: 0, top: 60 }
+          }}
         />
 
         <BoxStyle>

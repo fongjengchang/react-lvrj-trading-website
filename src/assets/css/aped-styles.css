@@ -1,6 +1,8 @@
 .aped-button {
-  width: 185px;
+  /* width: 185px; */
   height: 58px;
+  padding-left: 30px;
+  padding-right: 30px;
   background: linear-gradient(90deg, #fd02bd -9.8%, #5600c4 100%);
   border-radius: 8px;
   font-size: 18px;
