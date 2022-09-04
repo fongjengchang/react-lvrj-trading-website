@@ -82,12 +82,14 @@ export default function YourFunds() {
               sx={{
                 fontFamily: 'BarlowExtraBoldItalic',
                 color: 'common.white',
-                textAlign: 'center'
+                textAlign: 'center',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: '28px'
+                }
               }}
             >
-              YOU MAINTAIN CUSTODAY
-              <br />
-              OF YOUR FUNDS
+              YOU MAINTAIN CUSTODAY OF <br />
+              YOUR FUNDS
             </Typography>
             <div
               style={{

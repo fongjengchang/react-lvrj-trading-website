@@ -72,15 +72,14 @@ export default function Tokenomics() {
           </Box>
         </ContentStyle>
 
-        <BoxStyle>
+        <BoxStyle sx={{ textAlign: 'center' }}>
           <Typography
             variant="body1"
             sx={{
               fontFamily: 'BarlowRegular',
               maxWidth: 420,
               margin: 'auto',
-              marginBottom: 4,
-              [theme.breakpoints.down('md')]: { textAlign: 'center' }
+              marginBottom: 4
             }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt .

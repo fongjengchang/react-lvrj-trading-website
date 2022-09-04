@@ -51,12 +51,15 @@ export default function Borrowing() {
               sx={{
                 fontFamily: 'BarlowExtraBoldItalic',
                 color: 'common.white',
-                textAlign: 'center'
+                textAlign: 'center',
+                maxWidth: 900,
+                margin: 'auto',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: '28px'
+                }
               }}
             >
-              1000X LEVERAGE, NO BORROWING FEES,
-              <br />
-              NO OPEN INTEREST
+              1000X LEVERAGE, NO BORROWING FEES, NO OPEN INTEREST
             </Typography>
             <div
               style={{

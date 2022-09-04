@@ -52,7 +52,10 @@ export default function GetPaid() {
               sx={{
                 fontFamily: 'BarlowExtraBoldItalic',
                 color: 'common.white',
-                textAlign: 'center'
+                textAlign: 'center',
+                [theme.breakpoints.down('md')]: {
+                  fontSize: '28px'
+                }
               }}
             >
               TRADE IN DAI, GET

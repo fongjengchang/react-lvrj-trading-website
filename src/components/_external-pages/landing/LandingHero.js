@@ -181,14 +181,24 @@ export default function LandingHero() {
 
           <Image
             src="/static/landing/pink-ellipse-left.png"
-            sx={{ position: 'absolute', left: 0, top: 60, transform: 'translate(-30%, -25%)' }}
+            sx={{
+              position: 'absolute',
+              left: 0,
+              top: 60,
+              transform: 'translate(-30%, -25%)',
+              [theme.breakpoints.down('md')]: {
+                width: '100%',
+                height: '100%',
+                '& .MuiBox-root': { objectFit: 'initial' }
+              }
+            }}
           />
 
           <Image src="/static/landing/grey-ellipse-2.png" sx={{ position: 'absolute', right: 0, top: 0, zIndex: 1 }} />
-          <Image
+          {/* <Image
             src="/static/landing/grey-ellipse-1.png"
             sx={{ position: 'absolute', right: 100, top: 0, zIndex: 1 }}
-          />
+          /> */}
         </Container>
       </RootStyle>
     </>
