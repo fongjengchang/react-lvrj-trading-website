@@ -70,11 +70,6 @@ export default function LandingHero() {
                   spacing={2}
                   alignItems="center"
                   justifyContent={{ xs: 'center', md: 'flex-start' }}
-                  sx={{
-                    [theme.breakpoints.down('md')]: {
-                      marginBottom: 1
-                    }
-                  }}
                 >
                   <MHidden width="mdDown">
                     <Box sx={{ width: 73, height: 0, border: '2px solid #FE00C0', borderRadius: 5 }} />
@@ -185,10 +180,10 @@ export default function LandingHero() {
           />
 
           <Image src="/static/landing/grey-ellipse-2.png" sx={{ position: 'absolute', right: 0, top: 0, zIndex: 1 }} />
-          {/* <Image
+          <Image
             src="/static/landing/grey-ellipse-1.png"
             sx={{ position: 'absolute', right: 100, top: 0, zIndex: 1 }}
-          /> */}
+          />
         </Container>
       </RootStyle>
     </>
