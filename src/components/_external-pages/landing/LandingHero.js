@@ -62,21 +62,6 @@ export default function LandingHero() {
     <>
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
         <Container maxWidth="xl">
-          <MHidden width="mdUp">
-            <Image
-              src="/static/landing/astronaut.png"
-              sx={{
-                position: 'absolute',
-                left: '50%',
-                top: '113px',
-                transform: 'translate(-50%, -50%)',
-                zIndex: 10,
-                width: 55,
-                height: 49
-              }}
-            />
-          </MHidden>
-
           <Stack direction="row" spacing={1} justifyContent="space-between">
             <ContentStyle>
               <motion.div variants={varFadeInRight}>
@@ -85,6 +70,11 @@ export default function LandingHero() {
                   spacing={2}
                   alignItems="center"
                   justifyContent={{ xs: 'center', md: 'flex-start' }}
+                  sx={{
+                    [theme.breakpoints.down('md')]: {
+                      marginBottom: 1
+                    }
+                  }}
                 >
                   <MHidden width="mdDown">
                     <Box sx={{ width: 73, height: 0, border: '2px solid #FE00C0', borderRadius: 5 }} />
