@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 // material
-import { experimentalStyled as styled, useTheme } from '@material-ui/core/styles';
+import { experimentalStyled as styled } from '@material-ui/core/styles';
 import { Container, Stack, Typography, Box, Button } from '@material-ui/core';
 //
 import { varWrapEnter } from '../../animate';
@@ -39,7 +39,6 @@ const BoxStyle = styled(Box)(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Tokenomics() {
-  const theme = useTheme();
   return (
     <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
       <Container sx={{ position: 'relative' }}>
